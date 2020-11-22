@@ -1,0 +1,12 @@
+{
+  "palabras" : {
+    "dificiles" : [
+      "hola"
+    ],
+    "faciles" : [
+      "hola"
+    ]
+  },
+  "maxScore": 0,
+  "dificultad" : "default"
+}
