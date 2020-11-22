@@ -1,0 +1,487 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A90E83D22565EE9E0086A644 /* AhorcadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90E83D12565EE9E0086A644 /* AhorcadoApp.swift */; };
+		A90E83D42565EE9E0086A644 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90E83D32565EE9E0086A644 /* ContentView.swift */; };
+		A90E83D62565EE9F0086A644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A90E83D52565EE9F0086A644 /* Assets.xcassets */; };
+		A90E83D92565EE9F0086A644 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A90E83D82565EE9F0086A644 /* Preview Assets.xcassets */; };
+		A90E83E5256610890086A644 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90E83E4256610890086A644 /* MainMenu.swift */; };
+		A90E83E8256610960086A644 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90E83E7256610960086A644 /* GameView.swift */; };
+		A90E83EB256610A50086A644 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90E83EA256610A50086A644 /* SettingsView.swift */; };
+		A90E83EF256610EC0086A644 /* EnvObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90E83EE256610EC0086A644 /* EnvObject.swift */; };
+		A90E83F825662DC30086A644 /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = A90E83F725662DC30086A644 /* File.txt */; };
+		A90E840025663F210086A644 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A90E83FF25663F210086A644 /* Credits.rtf */; };
+		A952AC6825677CAF00CAF55D /* CCommandRunner.c in Sources */ = {isa = PBXBuildFile; fileRef = A952AC6725677CAF00CAF55D /* CCommandRunner.c */; };
+		A99CE75A25696CE700BD3283 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99CE75925696CE700BD3283 /* TestView.swift */; };
+		A99CE75D25696FC800BD3283 /* genQuestWord.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE75C25696FC800BD3283 /* genQuestWord.py */; };
+		A99CE764256987E300BD3283 /* checkWord.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE763256987E300BD3283 /* checkWord.py */; };
+		A99CE7702569C16900BD3283 /* checkIfWin.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE76F2569C16900BD3283 /* checkIfWin.py */; };
+		A99CE77C2569ED3300BD3283 /* getDifficulty.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE77B2569ED3300BD3283 /* getDifficulty.py */; };
+		A99CE77F2569ED4600BD3283 /* getMaxScore.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE77E2569ED4600BD3283 /* getMaxScore.py */; };
+		A99CE7842569F0EC00BD3283 /* setDifficulty.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE7832569F0EC00BD3283 /* setDifficulty.py */; };
+		A99CE7872569F0FF00BD3283 /* setMaxScore.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE7862569F0FF00BD3283 /* setMaxScore.py */; };
+		A9A2CFF725679F2100E60EC1 /* genWord.py in Resources */ = {isa = PBXBuildFile; fileRef = A9A2CFF625679F2100E60EC1 /* genWord.py */; };
+		A9FC90F42567966D009A086D /* CommandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FC90F32567966D009A086D /* CommandRunner.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A90E83CE2565EE9E0086A644 /* Ahorcado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ahorcado.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A90E83D12565EE9E0086A644 /* AhorcadoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AhorcadoApp.swift; sourceTree = "<group>"; };
+		A90E83D32565EE9E0086A644 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A90E83D52565EE9F0086A644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A90E83D82565EE9F0086A644 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A90E83DA2565EE9F0086A644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A90E83DB2565EE9F0086A644 /* Ahorcado.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ahorcado.entitlements; sourceTree = "<group>"; };
+		A90E83E4256610890086A644 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		A90E83E7256610960086A644 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		A90E83EA256610A50086A644 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A90E83EE256610EC0086A644 /* EnvObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvObject.swift; sourceTree = "<group>"; };
+		A90E83F725662DC30086A644 /* File.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = File.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
+		A90E83FF25663F210086A644 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		A952AC6525677CAF00CAF55D /* Ahorcado-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ahorcado-Bridging-Header.h"; sourceTree = "<group>"; };
+		A952AC6625677CAF00CAF55D /* CCommandRunner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCommandRunner.h; sourceTree = "<group>"; };
+		A952AC6725677CAF00CAF55D /* CCommandRunner.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CCommandRunner.c; sourceTree = "<group>"; };
+		A99CE75925696CE700BD3283 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		A99CE75C25696FC800BD3283 /* genQuestWord.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = genQuestWord.py; sourceTree = "<group>"; };
+		A99CE763256987E300BD3283 /* checkWord.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = checkWord.py; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.python; };
+		A99CE76F2569C16900BD3283 /* checkIfWin.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = checkIfWin.py; sourceTree = "<group>"; };
+		A99CE77B2569ED3300BD3283 /* getDifficulty.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = getDifficulty.py; sourceTree = "<group>"; };
+		A99CE77E2569ED4600BD3283 /* getMaxScore.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = getMaxScore.py; sourceTree = "<group>"; };
+		A99CE7832569F0EC00BD3283 /* setDifficulty.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = setDifficulty.py; sourceTree = "<group>"; };
+		A99CE7862569F0FF00BD3283 /* setMaxScore.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = setMaxScore.py; sourceTree = "<group>"; };
+		A9A2CFF625679F2100E60EC1 /* genWord.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = genWord.py; sourceTree = "<group>"; };
+		A9FC90F32567966D009A086D /* CommandRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandRunner.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A90E83CB2565EE9E0086A644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A90E83C52565EE9E0086A644 = {
+			isa = PBXGroup;
+			children = (
+				A90E83D02565EE9E0086A644 /* Ahorcado */,
+				A90E83CF2565EE9E0086A644 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A90E83CF2565EE9E0086A644 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A90E83CE2565EE9E0086A644 /* Ahorcado.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A90E83D02565EE9E0086A644 /* Ahorcado */ = {
+			isa = PBXGroup;
+			children = (
+				A90E83D12565EE9E0086A644 /* AhorcadoApp.swift */,
+				A90E83F725662DC30086A644 /* File.txt */,
+				A9A2CFF525679F0400E60EC1 /* Python */,
+				A90E83FF25663F210086A644 /* Credits.rtf */,
+				A90E83D32565EE9E0086A644 /* ContentView.swift */,
+				A90E83F1256612530086A644 /* CommandRunner */,
+				A90E83ED256610CF0086A644 /* EnvironmentObjects */,
+				A90E83E3256610620086A644 /* Views */,
+				A90E83D52565EE9F0086A644 /* Assets.xcassets */,
+				A90E83DA2565EE9F0086A644 /* Info.plist */,
+				A90E83DB2565EE9F0086A644 /* Ahorcado.entitlements */,
+				A90E83D72565EE9F0086A644 /* Preview Content */,
+			);
+			path = Ahorcado;
+			sourceTree = "<group>";
+		};
+		A90E83D72565EE9F0086A644 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A90E83D82565EE9F0086A644 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A90E83E3256610620086A644 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A99CE75925696CE700BD3283 /* TestView.swift */,
+				A90E83E4256610890086A644 /* MainMenu.swift */,
+				A90E83E7256610960086A644 /* GameView.swift */,
+				A90E83EA256610A50086A644 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A90E83ED256610CF0086A644 /* EnvironmentObjects */ = {
+			isa = PBXGroup;
+			children = (
+				A90E83EE256610EC0086A644 /* EnvObject.swift */,
+			);
+			path = EnvironmentObjects;
+			sourceTree = "<group>";
+		};
+		A90E83F1256612530086A644 /* CommandRunner */ = {
+			isa = PBXGroup;
+			children = (
+				A9FC90F32567966D009A086D /* CommandRunner.swift */,
+				A952AC6625677CAF00CAF55D /* CCommandRunner.h */,
+				A952AC6725677CAF00CAF55D /* CCommandRunner.c */,
+				A952AC6525677CAF00CAF55D /* Ahorcado-Bridging-Header.h */,
+			);
+			path = CommandRunner;
+			sourceTree = "<group>";
+		};
+		A99CE7732569ECE600BD3283 /* GameFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				A9A2CFF625679F2100E60EC1 /* genWord.py */,
+				A99CE75C25696FC800BD3283 /* genQuestWord.py */,
+				A99CE763256987E300BD3283 /* checkWord.py */,
+				A99CE76F2569C16900BD3283 /* checkIfWin.py */,
+			);
+			path = GameFunctions;
+			sourceTree = "<group>";
+		};
+		A99CE7742569ECF700BD3283 /* DataFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				A99CE7832569F0EC00BD3283 /* setDifficulty.py */,
+				A99CE7862569F0FF00BD3283 /* setMaxScore.py */,
+				A99CE77B2569ED3300BD3283 /* getDifficulty.py */,
+				A99CE77E2569ED4600BD3283 /* getMaxScore.py */,
+			);
+			path = DataFunctions;
+			sourceTree = "<group>";
+		};
+		A9A2CFF525679F0400E60EC1 /* Python */ = {
+			isa = PBXGroup;
+			children = (
+				A99CE7742569ECF700BD3283 /* DataFunctions */,
+				A99CE7732569ECE600BD3283 /* GameFunctions */,
+			);
+			path = Python;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A90E83CD2565EE9E0086A644 /* Ahorcado */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A90E83DE2565EE9F0086A644 /* Build configuration list for PBXNativeTarget "Ahorcado" */;
+			buildPhases = (
+				A90E83CA2565EE9E0086A644 /* Sources */,
+				A90E83CB2565EE9E0086A644 /* Frameworks */,
+				A90E83CC2565EE9E0086A644 /* Resources */,
+				A91CD4DB2567DE05003F0F47 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Ahorcado;
+			productName = Ahorcado;
+			productReference = A90E83CE2565EE9E0086A644 /* Ahorcado.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A90E83C62565EE9E0086A644 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					A90E83CD2565EE9E0086A644 = {
+						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
+					};
+				};
+			};
+			buildConfigurationList = A90E83C92565EE9E0086A644 /* Build configuration list for PBXProject "Ahorcado" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A90E83C52565EE9E0086A644;
+			productRefGroup = A90E83CF2565EE9E0086A644 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A90E83CD2565EE9E0086A644 /* Ahorcado */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A90E83CC2565EE9E0086A644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A99CE77C2569ED3300BD3283 /* getDifficulty.py in Resources */,
+				A99CE75D25696FC800BD3283 /* genQuestWord.py in Resources */,
+				A90E83D92565EE9F0086A644 /* Preview Assets.xcassets in Resources */,
+				A99CE7702569C16900BD3283 /* checkIfWin.py in Resources */,
+				A90E83D62565EE9F0086A644 /* Assets.xcassets in Resources */,
+				A99CE7842569F0EC00BD3283 /* setDifficulty.py in Resources */,
+				A99CE77F2569ED4600BD3283 /* getMaxScore.py in Resources */,
+				A99CE764256987E300BD3283 /* checkWord.py in Resources */,
+				A90E83F825662DC30086A644 /* File.txt in Resources */,
+				A9A2CFF725679F2100E60EC1 /* genWord.py in Resources */,
+				A90E840025663F210086A644 /* Credits.rtf in Resources */,
+				A99CE7872569F0FF00BD3283 /* setMaxScore.py in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A91CD4DB2567DE05003F0F47 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A90E83CA2565EE9E0086A644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A90E83D42565EE9E0086A644 /* ContentView.swift in Sources */,
+				A9FC90F42567966D009A086D /* CommandRunner.swift in Sources */,
+				A90E83EB256610A50086A644 /* SettingsView.swift in Sources */,
+				A90E83E5256610890086A644 /* MainMenu.swift in Sources */,
+				A90E83E8256610960086A644 /* GameView.swift in Sources */,
+				A90E83EF256610EC0086A644 /* EnvObject.swift in Sources */,
+				A99CE75A25696CE700BD3283 /* TestView.swift in Sources */,
+				A952AC6825677CAF00CAF55D /* CCommandRunner.c in Sources */,
+				A90E83D22565EE9E0086A644 /* AhorcadoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A90E83DC2565EE9F0086A644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A90E83DD2565EE9F0086A644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		A90E83DF2565EE9F0086A644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Ahorcado/Ahorcado.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Ahorcado/Preview Content\"";
+				DEVELOPMENT_TEAM = LH8V3PVJSF;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Ahorcado/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aox0.ahorcado;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Ahorcado/CommandRunner/Ahorcado-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A90E83E02565EE9F0086A644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Ahorcado/Ahorcado.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Ahorcado/Preview Content\"";
+				DEVELOPMENT_TEAM = LH8V3PVJSF;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Ahorcado/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aox0.ahorcado;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Ahorcado/CommandRunner/Ahorcado-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A90E83C92565EE9E0086A644 /* Build configuration list for PBXProject "Ahorcado" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A90E83DC2565EE9F0086A644 /* Debug */,
+				A90E83DD2565EE9F0086A644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A90E83DE2565EE9F0086A644 /* Build configuration list for PBXNativeTarget "Ahorcado" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A90E83DF2565EE9F0086A644 /* Debug */,
+				A90E83E02565EE9F0086A644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A90E83C62565EE9E0086A644 /* Project object */;
+}
