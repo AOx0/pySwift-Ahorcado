@@ -23,39 +23,19 @@ struct MainMenu: View {
                         .foregroundColor(.black)
                     
                     Text("Play")
-                        .font(.system(size: 50))
-                        .padding()
-                        .foregroundColor(.black)
-                        .ignoresSafeArea(edges: .all)
-                        .onTapGesture {
+                        .menuButton {
                             data.generarPalabra()
                             withAnimation {
                                 data.stage = .inGame
                             }
                         }
-                        .background(
-                            RoundedRectangle(cornerRadius: 25.0)
-                                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-                                .opacity(0.0)
-                                
-                        )
                     
                     Text("Settings")
-                        .font(.system(size: 50))
-                        .padding()
-                        .foregroundColor(.black)
-                        .ignoresSafeArea(edges: .all)
-                        .onTapGesture {
+                        .menuButton {
                             withAnimation {
                                 data.stage = .inSettings
                             }
                         }
-                        .background(
-                            RoundedRectangle(cornerRadius: 25.0)
-                                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-                                .opacity(0.0)
-                                
-                        )
                 }
             }
             .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
@@ -70,4 +50,3 @@ struct MainMenu_Previews: PreviewProvider {
         MainMenu().environmentObject(EnvObject())
     }
 }
-

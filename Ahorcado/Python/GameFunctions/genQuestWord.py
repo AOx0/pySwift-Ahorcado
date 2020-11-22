@@ -2,22 +2,22 @@ import sys
 from random import randint as random
 
 def genWord():
-    palabraRandomParaUsuario = ""
+    generatedDisplayWord = ""
 
     for i in sys.argv[1]:
         if [1,1,1,1,2,2][random(0,5)] == 2:
-            palabraRandomParaUsuario += i
+            generatedDisplayWord += i
         else:
-            palabraRandomParaUsuario += "ˍ"
+            generatedDisplayWord += "ˍ"
 
-    return palabraRandomParaUsuario
+    return generatedDisplayWord
 
-palabraRandomParaUsuario = ""
+generatedDisplayWord = ""
 
 while True:
-    if "ˍ" not in palabraRandomParaUsuario:
-        palabraRandomParaUsuario = genWord()
+    if "ˍ" not in generatedDisplayWord:
+        generatedDisplayWord = genWord()
     else:
         break;
         
-print(palabraRandomParaUsuario)
+print(generatedDisplayWord)

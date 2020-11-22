@@ -38,47 +38,6 @@ struct ContentView: View {
     }
 }
 
-struct StageView : ViewModifier {
-    var geo : GeometryProxy
-    var data : EnvObject
-    
-    func body(content: Content) -> some View {
-        ZStack {
-            content
-                .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
-                .ignoresSafeArea(edges: .all)
-            
-            if data.stage != .inMenu {
-                VStack{
-                    HStack{
-                        Image("BackButton").resizable()
-                            .frame(width: 50, height: 50, alignment: .center)
-                            .onTapGesture {
-                                
-                                if data.stage == .inGame{
-                                    data.score = 0
-                                    data.vidas = 9
-                                }
-                                
-                                withAnimation {
-                                    data.stage = .inMenu
-                                }
-                            }
-                        Spacer()
-                    }
-                    Spacer()
-                }
-            }
-        }
-    }
-}
-
-extension View {
-    func stageViewMode(geo: GeometryProxy, envObject: EnvObject) -> some View {
-        self.modifier(StageView(geo: geo, data: envObject))
-    }
-}
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

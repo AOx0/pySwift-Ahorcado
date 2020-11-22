@@ -18,7 +18,6 @@
 		A90E83F825662DC30086A644 /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = A90E83F725662DC30086A644 /* File.txt */; };
 		A90E840025663F210086A644 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A90E83FF25663F210086A644 /* Credits.rtf */; };
 		A952AC6825677CAF00CAF55D /* CCommandRunner.c in Sources */ = {isa = PBXBuildFile; fileRef = A952AC6725677CAF00CAF55D /* CCommandRunner.c */; };
-		A99CE75A25696CE700BD3283 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99CE75925696CE700BD3283 /* TestView.swift */; };
 		A99CE75D25696FC800BD3283 /* genQuestWord.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE75C25696FC800BD3283 /* genQuestWord.py */; };
 		A99CE764256987E300BD3283 /* checkWord.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE763256987E300BD3283 /* checkWord.py */; };
 		A99CE7702569C16900BD3283 /* checkIfWin.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE76F2569C16900BD3283 /* checkIfWin.py */; };
@@ -27,6 +26,11 @@
 		A99CE7842569F0EC00BD3283 /* setDifficulty.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE7832569F0EC00BD3283 /* setDifficulty.py */; };
 		A99CE7872569F0FF00BD3283 /* setMaxScore.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE7862569F0FF00BD3283 /* setMaxScore.py */; };
 		A9A2CFF725679F2100E60EC1 /* genWord.py in Resources */ = {isa = PBXBuildFile; fileRef = A9A2CFF625679F2100E60EC1 /* genWord.py */; };
+		A9AA6449256B0E6F0087EC70 /* MenuButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA6448256B0E6F0087EC70 /* MenuButtonModifier.swift */; };
+		A9AA644C256B0E9B0087EC70 /* SetUpModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA644B256B0E9B0087EC70 /* SetUpModifiers.swift */; };
+		A9AA6451256B0EEB0087EC70 /* CustomPickerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA6450256B0EEB0087EC70 /* CustomPickerModifier.swift */; };
+		A9AA6454256B0F430087EC70 /* DifficultyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA6453256B0F430087EC70 /* DifficultyPicker.swift */; };
+		A9AA6459256B11580087EC70 /* StageViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA6458256B11580087EC70 /* StageViewModifier.swift */; };
 		A9FC90F42567966D009A086D /* CommandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FC90F32567966D009A086D /* CommandRunner.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +51,6 @@
 		A952AC6525677CAF00CAF55D /* Ahorcado-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ahorcado-Bridging-Header.h"; sourceTree = "<group>"; };
 		A952AC6625677CAF00CAF55D /* CCommandRunner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCommandRunner.h; sourceTree = "<group>"; };
 		A952AC6725677CAF00CAF55D /* CCommandRunner.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CCommandRunner.c; sourceTree = "<group>"; };
-		A99CE75925696CE700BD3283 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		A99CE75C25696FC800BD3283 /* genQuestWord.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = genQuestWord.py; sourceTree = "<group>"; };
 		A99CE763256987E300BD3283 /* checkWord.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = checkWord.py; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.python; };
 		A99CE76F2569C16900BD3283 /* checkIfWin.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = checkIfWin.py; sourceTree = "<group>"; };
@@ -56,6 +59,11 @@
 		A99CE7832569F0EC00BD3283 /* setDifficulty.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = setDifficulty.py; sourceTree = "<group>"; };
 		A99CE7862569F0FF00BD3283 /* setMaxScore.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = setMaxScore.py; sourceTree = "<group>"; };
 		A9A2CFF625679F2100E60EC1 /* genWord.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = genWord.py; sourceTree = "<group>"; };
+		A9AA6448256B0E6F0087EC70 /* MenuButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonModifier.swift; sourceTree = "<group>"; };
+		A9AA644B256B0E9B0087EC70 /* SetUpModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpModifiers.swift; sourceTree = "<group>"; };
+		A9AA6450256B0EEB0087EC70 /* CustomPickerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerModifier.swift; sourceTree = "<group>"; };
+		A9AA6453256B0F430087EC70 /* DifficultyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyPicker.swift; sourceTree = "<group>"; };
+		A9AA6458256B11580087EC70 /* StageViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageViewModifier.swift; sourceTree = "<group>"; };
 		A9FC90F32567966D009A086D /* CommandRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandRunner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,8 +103,9 @@
 				A90E83FF25663F210086A644 /* Credits.rtf */,
 				A90E83D32565EE9E0086A644 /* ContentView.swift */,
 				A90E83F1256612530086A644 /* CommandRunner */,
-				A90E83ED256610CF0086A644 /* EnvironmentObjects */,
+				A90E83ED256610CF0086A644 /* Objects */,
 				A90E83E3256610620086A644 /* Views */,
+				A9AA6447256B0E370087EC70 /* ViewModifiers */,
 				A90E83D52565EE9F0086A644 /* Assets.xcassets */,
 				A90E83DA2565EE9F0086A644 /* Info.plist */,
 				A90E83DB2565EE9F0086A644 /* Ahorcado.entitlements */,
@@ -116,20 +125,20 @@
 		A90E83E3256610620086A644 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A99CE75925696CE700BD3283 /* TestView.swift */,
 				A90E83E4256610890086A644 /* MainMenu.swift */,
 				A90E83E7256610960086A644 /* GameView.swift */,
 				A90E83EA256610A50086A644 /* SettingsView.swift */,
+				A9AA6453256B0F430087EC70 /* DifficultyPicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		A90E83ED256610CF0086A644 /* EnvironmentObjects */ = {
+		A90E83ED256610CF0086A644 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
 				A90E83EE256610EC0086A644 /* EnvObject.swift */,
 			);
-			path = EnvironmentObjects;
+			path = Objects;
 			sourceTree = "<group>";
 		};
 		A90E83F1256612530086A644 /* CommandRunner */ = {
@@ -172,6 +181,17 @@
 				A99CE7732569ECE600BD3283 /* GameFunctions */,
 			);
 			path = Python;
+			sourceTree = "<group>";
+		};
+		A9AA6447256B0E370087EC70 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				A9AA6448256B0E6F0087EC70 /* MenuButtonModifier.swift */,
+				A9AA6458256B11580087EC70 /* StageViewModifier.swift */,
+				A9AA6450256B0EEB0087EC70 /* CustomPickerModifier.swift */,
+				A9AA644B256B0E9B0087EC70 /* SetUpModifiers.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,11 +299,15 @@
 				A9FC90F42567966D009A086D /* CommandRunner.swift in Sources */,
 				A90E83EB256610A50086A644 /* SettingsView.swift in Sources */,
 				A90E83E5256610890086A644 /* MainMenu.swift in Sources */,
+				A9AA6451256B0EEB0087EC70 /* CustomPickerModifier.swift in Sources */,
 				A90E83E8256610960086A644 /* GameView.swift in Sources */,
+				A9AA6449256B0E6F0087EC70 /* MenuButtonModifier.swift in Sources */,
 				A90E83EF256610EC0086A644 /* EnvObject.swift in Sources */,
-				A99CE75A25696CE700BD3283 /* TestView.swift in Sources */,
 				A952AC6825677CAF00CAF55D /* CCommandRunner.c in Sources */,
 				A90E83D22565EE9E0086A644 /* AhorcadoApp.swift in Sources */,
+				A9AA6454256B0F430087EC70 /* DifficultyPicker.swift in Sources */,
+				A9AA6459256B11580087EC70 /* StageViewModifier.swift in Sources */,
+				A9AA644C256B0E9B0087EC70 /* SetUpModifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

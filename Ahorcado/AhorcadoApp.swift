@@ -6,28 +6,6 @@
 //
 
 import SwiftUI
-import Cocoa
-
-
-func searchPy3() -> String {
-    shSearchForPython()
-    var pythonPath = CommandRunner.execute(pyShell: "/bin/cat", arguments: ["\(NSHomeDirectory())/tempㄦ∴.txt"]) ?? ""
-    pythonPath = pythonPath.replacingOccurrences(of: "∴", with: "")
-    pythonPath = pythonPath.replacingOccurrences(of: "\n", with: "")
-    if pythonPath != "" { CommandRunner.voidExec("rm -f \(NSHomeDirectory())/tempㄦ∴.txt", pythonPath) }
-    
-    return pythonPath
-}
-
-func initializeData(_ obj : EnvObject) {
-    if CommandRunner.execResult("cd \(NSHomeDirectory())/Library/Application\\ Support/; [ -d 'AOX0' ] && echo 'Exists.' || echo 'Error'").contains("Error") {
-        obj.makeDefaultData()
-    } else {
-        obj.readData()
-    }
-}
-
-
 
 @main
 struct AhorcadoApp: App {
@@ -38,13 +16,13 @@ struct AhorcadoApp: App {
     
     init() {
         self.envObj = EnvObject()
-        CommandRunner.pyPath = searchPy3()
-        initializeData(envObj)
+        CommandRunner.pyPath = CommandRunner.searchPy3()
+        envObj.initializeData()
     }
     
     var body: some Scene {
         WindowGroup {
-            if searchPy3() != "" {
+            if CommandRunner.searchPy3() != "" {
                 ContentView()
                     .environmentObject(envObj)
             } else {
@@ -55,7 +33,6 @@ struct AhorcadoApp: App {
             }
         }
         .windowStyle(HiddenTitleBarWindowStyle())
-        
     }
 }
 

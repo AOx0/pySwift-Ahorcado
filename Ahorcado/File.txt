@@ -1,12 +1,12 @@
 {
-  "palabras" : {
-    "dificiles" : [
+  "wordsList" : {
+    "hardWords" : [
       "hola"
     ],
-    "faciles" : [
+    "easyWords" : [
       "hola"
     ]
   },
   "maxScore": 0,
-  "dificultad" : "default"
+  "difficulty" : "default"
 }

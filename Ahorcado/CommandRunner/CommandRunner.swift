@@ -17,16 +17,12 @@ struct CommandRunner {
         
         let pipe = Pipe()
         process.standardOutput = pipe
-        if #available(OSX 10.13, *) {
-            if let _ = try? process.run(){
-                let data = pipe.fileHandleForReading.readDataToEndOfFile()
-                let output = String(data: data, encoding: String.Encoding.utf8)
-                return output
-            }else{
-                return "Error: \(process.terminationStatus)"
-            }
+        if let _ = try? process.run(){
+            let data = pipe.fileHandleForReading.readDataToEndOfFile()
+            let output = String(data: data, encoding: String.Encoding.utf8)
+            return output
         } else {
-            return "Error: Only available in macOS 10.13 or newer"
+            return "Error: \(process.terminationStatus)"
         }
     }
     
@@ -44,6 +40,16 @@ struct CommandRunner {
     
     static func voidExec(_ command: String, _ py : String = CommandRunner.pyPath) {
         _ = execute(pyShell: py, arguments: ["-c", "import os; os.system(\"\(command)\")"])
+    }
+    
+    static func searchPy3() -> String {
+        shSearchForPython()
+        var pythonPath = CommandRunner.execute(pyShell: "/bin/cat", arguments: ["\(NSHomeDirectory())/tempㄦ∴.txt"]) ?? ""
+        pythonPath = pythonPath.replacingOccurrences(of: "∴", with: "")
+        pythonPath = pythonPath.replacingOccurrences(of: "\n", with: "")
+        if pythonPath != "" { CommandRunner.voidExec("rm -f \(NSHomeDirectory())/tempㄦ∴.txt", pythonPath) }
+        
+        return pythonPath
     }
     
 }

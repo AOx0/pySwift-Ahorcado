@@ -14,9 +14,9 @@ enum GameDifficulty {
     
     func passDifficulty() -> String {
         switch self{
-            case .inDefault: return "deafult"
+            case .inDefault: return "default"
             case .inEasy: return "easy"
-        case .inHard: return "hard"
+            case .inHard: return "hard"
         }
     }
 }
@@ -29,13 +29,13 @@ enum GameStage {
 
 class EnvObject : ObservableObject {
     @Published var stage : GameStage = GameStage.inMenu
-    @Published var dificultad = GameDifficulty.inDefault {
+    @Published var difficulty = GameDifficulty.inDefault {
         didSet {
             self.setDificulty()
         }
     }
     
-    @Published var vidas : Int = 4
+    @Published var lifes : Int = 4
     @Published var maxScore : Int = 0
     @Published var score : Int = 0
     
@@ -47,16 +47,16 @@ class EnvObject : ObservableObject {
         }
     }
     
-    @Published var palabra : String = ""
-    @Published var palabraParaUsuario : String = ""
-    @Published var letra : String = "" {
+    @Published var word : String = ""
+    @Published var displayedWord : String = ""
+    @Published var letter : String = "" {
         didSet {
             
-            if letra.count == 1 {
-                self.checarLetra(letra: letra)
-                letra = ""
+            if letter.count == 1 {
+                self.checarLetra(letter: letter)
+                letter = ""
                 
-                if CommandRunner.execResult("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/checkIfWin.py '\(self.palabraParaUsuario)'`") == "win" {
+                if CommandRunner.execResult("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/checkIfWin.py '\(self.displayedWord)'`") == "win" {
                     isWin = true
                 }
             }
@@ -64,21 +64,29 @@ class EnvObject : ObservableObject {
     }
     
     struct JSONStruct: Codable {
-        var palabras: [String]
-        var vidas: Int
+        var wordsList: [String]
+        var lifes: Int
+    }
+    
+    func initializeData() {
+        if CommandRunner.execResult("cd \(NSHomeDirectory())/Library/Application\\ Support/; [ -d 'AOX0' ] && echo 'Exists.' || echo 'Error'").contains("Error") {
+            self.makeDefaultData()
+        } else {
+            self.readData()
+        }
     }
     
     public func generarPalabra() {
-        self.palabra = CommandRunner.execResult("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/genWord.py '\(NSHomeDirectory())' '\(self.dificultad.passDifficulty())'`")
-        print(self.palabra)
+        self.word = CommandRunner.execResult("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/genWord.py '\(NSHomeDirectory())' '\(self.difficulty.passDifficulty())'`")
+        print(self.word)
         
-        self.palabraParaUsuario = CommandRunner.execResult("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/genQuestWord.py '\(self.palabra.lowercased())'`")
+        self.displayedWord = CommandRunner.execResult("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/genQuestWord.py '\(self.word.lowercased())'`")
         
-        print(self.palabraParaUsuario)
+        print(self.displayedWord)
     }
     
-    public func checarLetra(letra: String) {
-        self.palabraParaUsuario = CommandRunner.execResult("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/checkWord.py '\(self.palabra.lowercased())' '\(self.letra.lowercased())' '\(self.palabraParaUsuario)'`")
+    public func checarLetra(letter: String) {
+        self.displayedWord = CommandRunner.execResult("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/checkWord.py '\(self.word.lowercased())' '\(self.letter.lowercased())' '\(self.displayedWord)'`")
     }
     
     public func readData() {
@@ -86,9 +94,9 @@ class EnvObject : ObservableObject {
             let dificulty : String = CommandRunner.execResult("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/getDifficulty.py '\(NSHomeDirectory())'`")
             
             switch dificulty {
-                case "default": self.dificultad = .inDefault
-                case "easy": self.dificultad = .inEasy
-                default: self.dificultad = .inHard
+                case "default": self.difficulty = .inDefault
+                case "easy": self.difficulty = .inEasy
+                default: self.difficulty = .inHard
             }
         }
         
@@ -102,7 +110,7 @@ class EnvObject : ObservableObject {
     }
     
     func setDificulty() {
-        CommandRunner.voidExec("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/setDifficulty.py '\(NSHomeDirectory())' '\(self.dificultad.passDifficulty())'`")
+        CommandRunner.voidExec("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/setDifficulty.py '\(NSHomeDirectory())' '\(self.difficulty.passDifficulty())'`")
     }
 
     public func makeDefaultData() {
