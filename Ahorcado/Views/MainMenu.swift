@@ -19,10 +19,11 @@ struct MainMenu: View {
                         .foregroundColor(.black)
                         .font(.system(size: 100))
                     
-                    Text("Max Score: \(data.maxScore)")
+                    Text("Max Score (\(data.difficulty.passDifficulty().capitalized)): \(data.getModeMaxScore())")
                         .foregroundColor(.black)
                     
                     Text("Play")
+                        .bold()
                         .menuButton {
                             data.generarPalabra()
                             withAnimation {
@@ -36,12 +37,15 @@ struct MainMenu: View {
                                 data.stage = .inSettings
                             }
                         }
+                    Text("Exit")
+                        .menuButton {
+                            exit(0)
+                        }
                 }
             }
             .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
             .ignoresSafeArea(edges: .all)
         }
-        
     }
 }
 

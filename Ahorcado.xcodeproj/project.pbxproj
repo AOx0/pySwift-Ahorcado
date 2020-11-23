@@ -18,7 +18,7 @@
 		A90E83F825662DC30086A644 /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = A90E83F725662DC30086A644 /* File.txt */; };
 		A90E840025663F210086A644 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A90E83FF25663F210086A644 /* Credits.rtf */; };
 		A952AC6825677CAF00CAF55D /* CCommandRunner.c in Sources */ = {isa = PBXBuildFile; fileRef = A952AC6725677CAF00CAF55D /* CCommandRunner.c */; };
-		A99CE75D25696FC800BD3283 /* genQuestWord.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE75C25696FC800BD3283 /* genQuestWord.py */; };
+		A99CE75D25696FC800BD3283 /* genDisplayedWord.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE75C25696FC800BD3283 /* genDisplayedWord.py */; };
 		A99CE764256987E300BD3283 /* checkWord.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE763256987E300BD3283 /* checkWord.py */; };
 		A99CE7702569C16900BD3283 /* checkIfWin.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE76F2569C16900BD3283 /* checkIfWin.py */; };
 		A99CE77C2569ED3300BD3283 /* getDifficulty.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE77B2569ED3300BD3283 /* getDifficulty.py */; };
@@ -31,6 +31,7 @@
 		A9AA6451256B0EEB0087EC70 /* CustomPickerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA6450256B0EEB0087EC70 /* CustomPickerModifier.swift */; };
 		A9AA6454256B0F430087EC70 /* DifficultyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA6453256B0F430087EC70 /* DifficultyPicker.swift */; };
 		A9AA6459256B11580087EC70 /* StageViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA6458256B11580087EC70 /* StageViewModifier.swift */; };
+		A9AA645E256B4CA30087EC70 /* addWord.py in Resources */ = {isa = PBXBuildFile; fileRef = A9AA645D256B4CA30087EC70 /* addWord.py */; };
 		A9FC90F42567966D009A086D /* CommandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FC90F32567966D009A086D /* CommandRunner.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +52,7 @@
 		A952AC6525677CAF00CAF55D /* Ahorcado-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ahorcado-Bridging-Header.h"; sourceTree = "<group>"; };
 		A952AC6625677CAF00CAF55D /* CCommandRunner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCommandRunner.h; sourceTree = "<group>"; };
 		A952AC6725677CAF00CAF55D /* CCommandRunner.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CCommandRunner.c; sourceTree = "<group>"; };
-		A99CE75C25696FC800BD3283 /* genQuestWord.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = genQuestWord.py; sourceTree = "<group>"; };
+		A99CE75C25696FC800BD3283 /* genDisplayedWord.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = genDisplayedWord.py; sourceTree = "<group>"; };
 		A99CE763256987E300BD3283 /* checkWord.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = checkWord.py; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.python; };
 		A99CE76F2569C16900BD3283 /* checkIfWin.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = checkIfWin.py; sourceTree = "<group>"; };
 		A99CE77B2569ED3300BD3283 /* getDifficulty.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = getDifficulty.py; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		A9AA6450256B0EEB0087EC70 /* CustomPickerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerModifier.swift; sourceTree = "<group>"; };
 		A9AA6453256B0F430087EC70 /* DifficultyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyPicker.swift; sourceTree = "<group>"; };
 		A9AA6458256B11580087EC70 /* StageViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageViewModifier.swift; sourceTree = "<group>"; };
+		A9AA645D256B4CA30087EC70 /* addWord.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = addWord.py; sourceTree = "<group>"; };
 		A9FC90F32567966D009A086D /* CommandRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandRunner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,7 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				A9A2CFF625679F2100E60EC1 /* genWord.py */,
-				A99CE75C25696FC800BD3283 /* genQuestWord.py */,
+				A99CE75C25696FC800BD3283 /* genDisplayedWord.py */,
 				A99CE763256987E300BD3283 /* checkWord.py */,
 				A99CE76F2569C16900BD3283 /* checkIfWin.py */,
 			);
@@ -170,6 +172,7 @@
 				A99CE7862569F0FF00BD3283 /* setMaxScore.py */,
 				A99CE77B2569ED3300BD3283 /* getDifficulty.py */,
 				A99CE77E2569ED4600BD3283 /* getMaxScore.py */,
+				A9AA645D256B4CA30087EC70 /* addWord.py */,
 			);
 			path = DataFunctions;
 			sourceTree = "<group>";
@@ -254,7 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A99CE77C2569ED3300BD3283 /* getDifficulty.py in Resources */,
-				A99CE75D25696FC800BD3283 /* genQuestWord.py in Resources */,
+				A99CE75D25696FC800BD3283 /* genDisplayedWord.py in Resources */,
 				A90E83D92565EE9F0086A644 /* Preview Assets.xcassets in Resources */,
 				A99CE7702569C16900BD3283 /* checkIfWin.py in Resources */,
 				A90E83D62565EE9F0086A644 /* Assets.xcassets in Resources */,
@@ -265,6 +268,7 @@
 				A9A2CFF725679F2100E60EC1 /* genWord.py in Resources */,
 				A90E840025663F210086A644 /* Credits.rtf in Resources */,
 				A99CE7872569F0FF00BD3283 /* setMaxScore.py in Resources */,
+				A9AA645E256B4CA30087EC70 /* addWord.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

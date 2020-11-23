@@ -25,6 +25,7 @@ struct DifficultyPicker: View {
                         .pickerButton(geo: subGeo, text: pickerOptions["\(value)"]!.passDifficulty().capitalized) {
                             data.difficulty = pickerOptions["\(value)"]!
                         }
+                        .shadow(radius: 20)
                 } else {
                     Image("slice\(value+3)").resizable()
                         .pickerButton(geo: subGeo, text: pickerOptions["\(value)"]!.passDifficulty().capitalized) {}

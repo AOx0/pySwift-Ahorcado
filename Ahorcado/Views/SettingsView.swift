@@ -26,21 +26,29 @@ struct SettingsView: View {
                         .padding()
                     Spacer()
                     
-                    HStack {
-                        Text("Difficulty : ")
-                            .foregroundColor(.black)
-                        GeometryReader { subGeo in
-                            DifficultyPicker(subGeo: subGeo)
-                        }
-                        .frame(width: 200, height: 20, alignment: .center)
-                    }
-
-                    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                    Text("Difficulty : ")
                         .foregroundColor(.black)
-                        .onTapGesture {
-                            data.difficulty = .inHard
-                            data.setDificulty()
+                        .font(.system(size: 25))
+                    
+                    GeometryReader { subGeo in
+                        DifficultyPicker(subGeo: subGeo)
                     }
+                    .frame(width: 200, height: 20, alignment: .center)
+                    
+                    VStack(spacing: 0) {
+                        Text("Max Score (\(GameDifficulty.inEasy.passDifficulty().capitalized)): \t\(data.getModeMaxScore(GameDifficulty.inEasy))")
+                            .foregroundColor(.black)
+                        Text("Max Score (\(GameDifficulty.inDefault.passDifficulty().capitalized)): \t\(data.getModeMaxScore(GameDifficulty.inDefault))")
+                            .foregroundColor(.black)
+                        Text("Max Score (\(GameDifficulty.inHard.passDifficulty().capitalized)): \t\(data.getModeMaxScore(GameDifficulty.inHard))")
+                            .foregroundColor(.black)
+                    }
+                    .padding(.all, 10.0)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10.0)
+                            .opacity(0.1)
+                            .shadow(radius: 20)
+                    )
                     Spacer()
                 }
             }

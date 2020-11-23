@@ -30,8 +30,7 @@ struct StageView : ViewModifier {
                     .onTapGesture {
                         
                         if data.stage == .inGame{
-                            data.score = 0
-                            data.lifes = 9
+                            data.isLose = true
                         }
                         
                         withAnimation {

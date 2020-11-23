@@ -13,6 +13,7 @@ The main objective of this project is to develop a Python based program with a S
 
 The general structure the program has is the following one:
 
-<img src="https://raw.githubusercontent.com/AOx0/pySwift-Ahorcado/main/Res/Estructura.png?token=AL7GSJTDIEQDXCH3XZJVWOK7XK74E" style="zoom:40%;" />
+![img](https://github.com/AOx0/pySwift-Ahorcado/blob/main/Res/Estructura.png)
 
 Every progress in the game score ore changes in the list of words or difficulty is saved in a "save.json" file created in the first run of the program and loaded in every launch.
+

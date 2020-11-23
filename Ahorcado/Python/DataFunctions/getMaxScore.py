@@ -4,5 +4,5 @@ userPath = sys.argv[1]
 
 with open(f"{userPath}/Library/Application Support/AOX0/save.json", "r") as file:
     data = json.load(file)
-    print(data["maxScore"])
+    print(json.dumps(data["maxScore"], indent=4, separators=(", ", " : ")))
     file.close()
