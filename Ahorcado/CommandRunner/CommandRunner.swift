@@ -28,28 +28,74 @@ struct CommandRunner {
     
     
 
-    static func execResult(_ command: String, _ py : String = CommandRunner.pyPath) -> String {
+    static func execResult(_ command: String, _ py : String = CommandRunner.pyPath.parsedPath) -> String {
         var result = execute(pyShell: py, arguments: ["-c", "import os; os.system(\"\(command)\")"]) ?? "Error"; if result.count > 0{ result.removeLast()}
         return result
     }
 
-    static func printExec(_ command: String, _ py : String = CommandRunner.pyPath) {
+    static func printExec(_ command: String, _ py : String = CommandRunner.pyPath.parsedPath) {
         var result = execute(pyShell: py, arguments: ["-c", "import os; os.system(\"\(command)\")"]) ?? "Error"; if result.count > 0{ result.removeLast()}
         print(result)
     }
     
-    static func voidExec(_ command: String, _ py : String = CommandRunner.pyPath) {
+    static func voidExec(_ command: String, _ py : String = CommandRunner.pyPath.parsedPath) {
         _ = execute(pyShell: py, arguments: ["-c", "import os; os.system(\"\(command)\")"])
     }
     
-    static func searchPy3() -> String {
-        shSearchForPython()
-        var pythonPath = CommandRunner.execute(pyShell: "/bin/cat", arguments: ["\(NSHomeDirectory())/tempㄦ∴.txt"]) ?? ""
-        pythonPath = pythonPath.replacingOccurrences(of: "∴", with: "")
-        pythonPath = pythonPath.replacingOccurrences(of: "\n", with: "")
-        if pythonPath != "" { CommandRunner.voidExec("rm -f \(NSHomeDirectory())/tempㄦ∴.txt", pythonPath) }
+    private static func searchNewestVersion(_ strWithVersions :  String) -> String {
+        let strWithVersions = strWithVersions.replacingOccurrences(of: "/Library/Frameworks/Python.framework/Versions/", with: "").replacingOccurrences(of: "/bin/python3", with: "").replacingOccurrences(of: "/bin/python4", with: "").replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "∴", with: " ")
+        print(strWithVersions)
+        var listOfVersions : [Float32] = []
+        var tempValue : String = ""
+        for i in strWithVersions{
+            if i == " " {
+                listOfVersions.append(Float32(tempValue)!)
+                tempValue = ""
+            } else {
+                tempValue += String(i)
+            }
+        }
+        print(listOfVersions)
+        let newestVersion = String(listOfVersions.max()!)
+        print(listOfVersions.max()!)
+        let gralNewestVersion = newestVersion[String.Index(utf16Offset: 0, in: newestVersion)]
+        let newestVersionPath = "/Library/Frameworks/Python.framework/Versions/\(newestVersion)/bin/python\(gralNewestVersion)"
         
-        return pythonPath
+        return newestVersionPath
     }
     
+    static func searchPy3() -> String {
+        
+        shSearchForPython2(NSHomeDirectory())
+        print("Listo")
+        var pythonPath = CommandRunner.execute(pyShell: "/bin/cat", arguments: ["\(NSHomeDirectory())/tempㄦ∴.txt"]) ?? ""
+        print(pythonPath)
+        print("Listo2")
+        var strNumberOfResults : String = ""
+        var numberOfResults : Int = 0
+        
+        for i in pythonPath {
+            if i == ":" {
+                numberOfResults = Int(String(strNumberOfResults).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")) ?? 0
+                pythonPath = pythonPath.replacingOccurrences(of: "\(strNumberOfResults):", with: "")
+                break;
+            } else {
+                strNumberOfResults += String(i)
+            }
+        }
+        
+        pythonPath = pythonPath.replacingOccurrences(of: "\n", with: "")
+        
+        if numberOfResults == 1 {
+            pythonPath = pythonPath.replacingOccurrences(of: "∴", with: "")
+        } else {
+            print(pythonPath)
+            pythonPath = CommandRunner.searchNewestVersion(pythonPath)
+        }
+        
+        if pythonPath != "" { CommandRunner.voidExec("rm -f \(NSHomeDirectory())/tempㄦ∴.txt", pythonPath) }
+        
+        print(pythonPath)
+        return pythonPath
+    }
 }

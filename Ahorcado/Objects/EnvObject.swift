@@ -5,23 +5,20 @@
 //  Created by Alejandro D on 18/11/20.
 //
 
+
+
 import Foundation
 
-struct MaxScore: Codable {
+extension String {
+    var parsedPath : String {
+        return self.replacingOccurrences(of: " ", with: "\\ ")
+    }
+}
+
+struct MaxScore {
     var inEasy: Int
     var inDefault: Int
     var inHard: Int
-    
-    func setMaxScore(difficulty : GameDifficulty) {
-        switch difficulty {
-            case .inEasy:
-                CommandRunner.voidExec("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/setMaxScore.py '\(NSHomeDirectory())' '\(self.inEasy)' '\(difficulty.passDifficulty())'`")
-            case .inDefault:
-                CommandRunner.voidExec("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/setMaxScore.py '\(NSHomeDirectory())' '\(self.inDefault)' '\(difficulty.passDifficulty())'`")
-            default:
-                CommandRunner.voidExec("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/setMaxScore.py '\(NSHomeDirectory())' '\(self.inHard)' '\(difficulty.passDifficulty())'`")
-        }
-    }
 }
 
 enum GameDifficulty {
@@ -45,6 +42,7 @@ enum GameStage {
 }
 
 class EnvObject : ObservableObject {
+    @Published var debugMessage = ""
     @Published var showLoseMessage : Bool = false
     
     @Published var stage : GameStage = GameStage.inMenu
@@ -62,9 +60,9 @@ class EnvObject : ObservableObject {
             }
         }
     }
-    @Published var maxScore : MaxScore = MaxScore(inEasy: 0, inDefault: 0, inHard: 0) {
+    @Published var maxScore : MaxScore {
         didSet {
-            maxScore.setMaxScore(difficulty: difficulty)
+            setMaxScore()
         }
     }
     @Published var score : Int = 0
@@ -100,8 +98,7 @@ class EnvObject : ObservableObject {
             if letter.count == 1 {
                 self.checarLetra(letter: letter)
                 letter = ""
-                
-                if CommandRunner.execResult("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/checkIfWin.py '\(self.displayedWord)'`") == "win" {
+                if CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/checkIfWin.py '\(self.displayedWord)'`") == "win" {
                     isWin = true
                 }
             }
@@ -119,65 +116,99 @@ class EnvObject : ObservableObject {
         }
     }
     
-    func initializeData() {
+    init() {
         if CommandRunner.execResult("cd \(NSHomeDirectory())/Library/Application\\ Support/; [ -d 'AOX0' ] && echo 'Exists.' || echo 'Error'").contains("Error") {
-            self.makeDefaultData()
-        } else {
-            self.readData()
+            EnvObject.makeDefaultData()
         }
+        
+        let dificulty : String = CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) '\(Bundle.main.bundlePath)/Contents/Resources/getDifficulty.py' '\(NSHomeDirectory())'`")
+            
+        switch dificulty {
+            case "default": self.difficulty = .inDefault
+            case "easy": self.difficulty = .inEasy
+            default: self.difficulty = .inHard
+        }
+        print("Flag 2")
+        self.maxScore = EnvObject.getMaxScore()
+        print("Flag 3")
+        
     }
     
     public func generarPalabra() {
-        self.word = CommandRunner.execResult("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/genWord.py '\(NSHomeDirectory())' '\(self.difficulty.passDifficulty())'`")
+        self.word = CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/genWord.py '\(NSHomeDirectory())' '\(self.difficulty.passDifficulty())'`")
         print(self.word)
         
-        self.displayedWord = CommandRunner.execResult("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/genDisplayedWord.py '\(self.word.lowercased())' '\(self.difficulty.passDifficulty())'`")
+        self.displayedWord = CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/genDisplayedWord.py '\(self.word.lowercased())' '\(self.difficulty.passDifficulty())'`")
         
         print(self.displayedWord)
     }
     
     public func checarLetra(letter: String) {
         let wordBefore = self.displayedWord
-        self.displayedWord = CommandRunner.execResult("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/checkWord.py '\(self.word.lowercased())' '\(self.letter.lowercased())' '\(self.displayedWord)'`")
+        self.displayedWord = CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/checkWord.py '\(self.word.lowercased())' '\(self.letter.lowercased())' '\(self.displayedWord)'`")
         
         if wordBefore == self.displayedWord {
             lives -= 1
         }
     }
     
-    public func readData() {
-        func getDificulty() {
-            let dificulty : String = CommandRunner.execResult("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/getDifficulty.py '\(NSHomeDirectory())'`")
-            
-            switch dificulty {
-                case "default": self.difficulty = .inDefault
-                case "easy": self.difficulty = .inEasy
-                default: self.difficulty = .inHard
+    static func getMaxScore() -> MaxScore {
+        print("1")
+        let maxScoreString : String = CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath)/Contents/Resources/getMaxScore.py '\(NSHomeDirectory())'`")
+        print("2")
+        var tempValue : String = ""
+        var tempStage : Int = 1
+        
+        var inEasy = 0, inDefault = 0, inHard = 0
+        print(maxScoreString)
+        print("3")
+        for char in maxScoreString {
+            print(tempValue)
+            if char != ":" {
+                tempValue += String(char)
+            } else {
+                switch tempStage {
+                case 1:
+                    inEasy = Int(tempValue)!
+                    tempStage += 1
+                case 2:
+                    inDefault = Int(tempValue)!
+                    tempStage += 1
+                case 3:
+                    inHard = Int(tempValue)!
+                    tempStage = 1
+                default:
+                    print("Error")
+                }
+                tempValue = ""
             }
         }
+        print("4")
         
-        func getMaxScore() {
-            let maxScore : String = CommandRunner.execResult("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/getMaxScore.py '\(NSHomeDirectory())'`")
-            //self.maxScore = maxScore
-            let jsonData = maxScore.data(using: .utf8)!
-            self.maxScore = try! JSONDecoder().decode(MaxScore.self, from: jsonData)
-            print(self.maxScore)
-        }
-        
-        getMaxScore()
-        getDificulty()
+        return MaxScore(inEasy: inEasy, inDefault: inDefault, inHard: inHard)
     }
     
     func setDificulty() {
-        CommandRunner.voidExec("echo `python3 \(Bundle.main.bundlePath)/Contents/Resources/setDifficulty.py '\(NSHomeDirectory())' '\(self.difficulty.passDifficulty())'`")
+        CommandRunner.voidExec("cd \(NSHomeDirectory()); echo `\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/setDifficulty.py '\(NSHomeDirectory())' '\(self.difficulty.passDifficulty())'`")
     }
 
-    public func makeDefaultData() {
+    public static func makeDefaultData() {
         print("Creando...")
         CommandRunner.voidExec("cd \(NSHomeDirectory())/Library/Application\\ Support/; mkdir AOX0")
         CommandRunner.voidExec("cd \(NSHomeDirectory())/Library/Application\\ Support/AOX0; touch save.json")
-        CommandRunner.voidExec("cd \(NSHomeDirectory())/Library/Application\\ Support/AOX0; less \(Bundle.main.bundlePath)/Contents/Resources/File.txt > save.json")
+        CommandRunner.voidExec("cd \(NSHomeDirectory())/Library/Application\\ Support/AOX0; less \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/File.txt > save.json")
         print("Listo.")
+    }
+    
+    func setMaxScore() {
+        switch self.difficulty {
+            case .inEasy:
+                CommandRunner.voidExec("\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/setMaxScore.py '\(NSHomeDirectory())' '\(maxScore.inEasy)' '\(difficulty.passDifficulty())'")
+            case .inDefault:
+                CommandRunner.voidExec("\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/setMaxScore.py '\(NSHomeDirectory())' '\(maxScore.inDefault)' '\(difficulty.passDifficulty())'")
+            default:
+                CommandRunner.voidExec("\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/setMaxScore.py '\(NSHomeDirectory())' '\(maxScore.inHard)' '\(difficulty.passDifficulty())'")
+        }
     }
 }
 
