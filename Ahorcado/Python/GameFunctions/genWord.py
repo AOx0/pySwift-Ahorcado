@@ -6,14 +6,13 @@ with open(f"{sys.argv[1]}/Library/Application Support/AOX0/save.json", "r") as f
 
     difficulty = sys.argv[2]
 
-    if difficulty == "default":
-        words = data["wordsList"]["hardWords"] + data["wordsList"]["easyWords"]
-        randomWord = words[random(0, len(words)-1)]
-    elif difficulty == "easy":
-        randomWord = data["wordsList"]["easyWords"][random(0, len(data["wordsList"]["easyWords"])-1)]
+    if difficulty == "hard":
+        words = data["wordsList"]["hardWords"] + data["wordsList"]["easyWords"] + data["wordsList"]["defaultWords"]
+    elif difficulty == "default":
+        words = data["wordsList"]["defaultWords"] + data["wordsList"]["easyWords"]
     else:
-        randomWord = data["wordsList"]["hardWords"][random(0, len(data["wordsList"]["hardWords"])-1)]
-
+        words = data["wordsList"]["easyWords"]
+        
+    randomWord = words[random(0, len(words)-1)]
     print(randomWord)
-    
     file.close()

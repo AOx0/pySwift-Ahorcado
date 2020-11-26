@@ -1,16 +1,19 @@
 {
   "wordsList": {
     "hardWords": [
-      "hola"
+      "holaH"
+    ],
+    "defaultWords" : [
+        "holaD"
     ],
     "easyWords": [
-      "hola"
+      "holaE"
     ]
   },
   "maxScore": {
-    "inEasy": 100,
-    "inDefault": 10,
-    "inHard": 1
+    "inEasy": 0,
+    "inDefault": 0,
+    "inHard": 0
   },
   "difficulty": "default"
 }
