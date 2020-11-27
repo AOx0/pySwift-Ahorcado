@@ -5,7 +5,9 @@ def genWord():
     generatedDisplayWord = ""
 
     for i in sys.argv[1]:
-        if [1,1,1,1,2,2][random(0,5)] == 2:
+        if i == " ":
+            generatedDisplayWord += " "
+        elif [1,1,1,1,2,2][random(0,5)] == 2:
             generatedDisplayWord += i
         else:
             generatedDisplayWord += "ˍ"

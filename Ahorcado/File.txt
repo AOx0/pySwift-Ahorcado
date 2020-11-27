@@ -7,7 +7,7 @@
         "holaD"
     ],
     "easyWords": [
-      "holaE"
+      "Hola me llamo pedro"
     ]
   },
   "maxScore": {

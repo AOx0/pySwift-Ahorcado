@@ -7,28 +7,29 @@
 
 import SwiftUI
 
-var userHomeDirectoryPath : String {
-    let pw = getpwuid(getuid())
-    let home = pw?.pointee.pw_dir
-    let homePath = FileManager.default.string(withFileSystemRepresentation: home!, length: Int(strlen(home!)))
-
-    return homePath
-}
-
 @main
 struct AhorcadoApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State var is_P = true
+    @Environment(\.openURL) var openURL
     
     let envObj : EnvObject
+    let bugObj : DebbugerObj
     
     init() {
-        CommandRunner.pyPath = String(CommandRunner.searchPy3())
-        self.envObj = EnvObject()
-        self.envObj.debugMessage += "var:  \(userHomeDirectoryPath)\n"
-        self.envObj.debugMessage += "func: \(NSHomeDirectory())\n"
-        self.envObj.debugMessage += "\(CommandRunner.pyPath.parsedPath)\n"
-        self.envObj.debugMessage += "\(Bundle.main.bundlePath.parsedPath)\n"
+        
+        if CommandRunner.searchPy3() != "" {
+            CommandRunner.pyPath = String(CommandRunner.searchPy3())
+            self.envObj = EnvObject()
+        } else {
+            self.envObj = EnvObject(noPython: true)
+        }
+        
+        
+        self.bugObj = DebbugerObj()
+        self.bugObj.debuggerText += "func: \(NSHomeDirectory())\n"
+        self.bugObj.debuggerText += "\(CommandRunner.pyPath.parsedPath)\n"
+        self.bugObj.debuggerText += "\(Bundle.main.bundlePath.parsedPath)\n"
         print(CommandRunner.pyPath.parsedPath)
         print(Bundle.main.bundlePath.parsedPath)
         
@@ -39,10 +40,13 @@ struct AhorcadoApp: App {
             if CommandRunner.searchPy3() != "" {
                 ContentView()
                     .environmentObject(envObj)
+                    .environmentObject(bugObj)
             } else {
                 ZStack{}
                     .alert(isPresented: $is_P, content: {
-                        Alert.init(title: Text("Imposible ejecutar"), message: Text("Python 3 no encontrado en /Library/Frameworks/Python.framework/Versions.\nInstale Python 3 y vuelva a intentar."), dismissButton: .default(Text("Ok"), action: {exit(0)}))
+                        Alert.init(title: Text("Imposible ejecutar"), message: Text("Python 3 no encontrado en /Library/Frameworks/Python.framework/Versions.\nInstale Python 3 y vuelva a intentar."), primaryButton: .default(Text("Ok"), action: {exit(0)}), secondaryButton: .default(Text("Install Python"), action: {
+                            openURL(URL(string: "https://www.python.org/downloads/")!)
+                        }))
                     })
             }
         }
@@ -53,5 +57,12 @@ struct AhorcadoApp: App {
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
+    }
+}
+
+extension NSTextField {
+    open override var focusRingType: NSFocusRingType {
+        get { .none }
+        set { }
     }
 }
