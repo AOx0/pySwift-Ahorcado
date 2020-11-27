@@ -8,6 +8,14 @@
 import SwiftUI
 
 extension View {
+    func gameTextField() -> some View {
+        self.modifier(TextFieldModifier())
+    }
+    
+    func gameButton(action : @escaping () -> ()) -> some View {
+        self.modifier(ButtonModifier(action: action))
+    }
+    
     func menuButton(action: @escaping () -> ()) -> some View {
         self.modifier(MenuButtonModifier(action: action))
     }

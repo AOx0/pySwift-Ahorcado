@@ -3,15 +3,26 @@
     "hardWords": [
       "holaH"
     ],
-    "defaultWords" : [
-        "holaD"
+    "defaultWords": [
+      "holaD"
     ],
     "easyWords": [
       "Hola me llamo pedro"
     ]
   },
+  "userWords": {
+    "hardWords": [
+        "Hola me llamo pedro"
+    ],
+    "defaultWords": [
+        "Hola me llamo pedro"
+    ],
+    "easyWords": [
+        "Hola me llamo pedro"
+    ]
+  },
   "maxScore": {
-    "inEasy": 0,
+    "inEasy": 15,
     "inDefault": 0,
     "inHard": 0
   },

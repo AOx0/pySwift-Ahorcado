@@ -31,8 +31,9 @@ struct GameView: View {
                         .font(.system(size: geo.size.height > geo.size.width ? geo.size.width * 0.15: geo.size.height * 0.15))
                     TextField("", text: $data.letter)
                         .multilineTextAlignment(.center)
-                        .frame(width: geo.size.width/4, alignment: .center)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .gameTextField()
+                        .frame(width: geo.size.width/3)
+                        .padding()
                 }
             }
             .frame(width: geo.size.width, height: geo.size.height, alignment: .center)

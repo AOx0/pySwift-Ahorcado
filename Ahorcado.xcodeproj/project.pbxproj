@@ -17,6 +17,10 @@
 		A90E83EF256610EC0086A644 /* EnvObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90E83EE256610EC0086A644 /* EnvObject.swift */; };
 		A90E83F825662DC30086A644 /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = A90E83F725662DC30086A644 /* File.txt */; };
 		A90E840025663F210086A644 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A90E83FF25663F210086A644 /* Credits.rtf */; };
+		A9380AC02570E4100021C055 /* resetUserWords.py in Resources */ = {isa = PBXBuildFile; fileRef = A9380ABF2570E4100021C055 /* resetUserWords.py */; };
+		A9380AC32570E9300021C055 /* resetMaxScore.py in Resources */ = {isa = PBXBuildFile; fileRef = A9380AC22570E9300021C055 /* resetMaxScore.py */; };
+		A9380AC62570F0FF0021C055 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9380AC52570F0FF0021C055 /* TextFieldModifier.swift */; };
+		A9380AC92570F11A0021C055 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9380AC82570F11A0021C055 /* ButtonModifier.swift */; };
 		A952AC6825677CAF00CAF55D /* CCommandRunner.c in Sources */ = {isa = PBXBuildFile; fileRef = A952AC6725677CAF00CAF55D /* CCommandRunner.c */; };
 		A99CE75D25696FC800BD3283 /* genDisplayedWord.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE75C25696FC800BD3283 /* genDisplayedWord.py */; };
 		A99CE764256987E300BD3283 /* checkWord.py in Resources */ = {isa = PBXBuildFile; fileRef = A99CE763256987E300BD3283 /* checkWord.py */; };
@@ -50,6 +54,10 @@
 		A90E83EE256610EC0086A644 /* EnvObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvObject.swift; sourceTree = "<group>"; };
 		A90E83F725662DC30086A644 /* File.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = File.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		A90E83FF25663F210086A644 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		A9380ABF2570E4100021C055 /* resetUserWords.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = resetUserWords.py; sourceTree = "<group>"; };
+		A9380AC22570E9300021C055 /* resetMaxScore.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = resetMaxScore.py; sourceTree = "<group>"; };
+		A9380AC52570F0FF0021C055 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
+		A9380AC82570F11A0021C055 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		A952AC6525677CAF00CAF55D /* Ahorcado-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ahorcado-Bridging-Header.h"; sourceTree = "<group>"; };
 		A952AC6625677CAF00CAF55D /* CCommandRunner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCommandRunner.h; sourceTree = "<group>"; };
 		A952AC6725677CAF00CAF55D /* CCommandRunner.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CCommandRunner.c; sourceTree = "<group>"; };
@@ -176,6 +184,8 @@
 				A99CE77B2569ED3300BD3283 /* getDifficulty.py */,
 				A99CE77E2569ED4600BD3283 /* getMaxScore.py */,
 				A9AA645D256B4CA30087EC70 /* addWord.py */,
+				A9380ABF2570E4100021C055 /* resetUserWords.py */,
+				A9380AC22570E9300021C055 /* resetMaxScore.py */,
 			);
 			path = DataFunctions;
 			sourceTree = "<group>";
@@ -192,6 +202,8 @@
 		A9AA6447256B0E370087EC70 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
+				A9380AC82570F11A0021C055 /* ButtonModifier.swift */,
+				A9380AC52570F0FF0021C055 /* TextFieldModifier.swift */,
 				A9AA6448256B0E6F0087EC70 /* MenuButtonModifier.swift */,
 				A9AA6458256B11580087EC70 /* StageViewModifier.swift */,
 				A9AA6450256B0EEB0087EC70 /* CustomPickerModifier.swift */,
@@ -264,6 +276,7 @@
 				A90E83D92565EE9F0086A644 /* Preview Assets.xcassets in Resources */,
 				A99CE7702569C16900BD3283 /* checkIfWin.py in Resources */,
 				A90E83D62565EE9F0086A644 /* Assets.xcassets in Resources */,
+				A9380AC32570E9300021C055 /* resetMaxScore.py in Resources */,
 				A99CE7842569F0EC00BD3283 /* setDifficulty.py in Resources */,
 				A99CE77F2569ED4600BD3283 /* getMaxScore.py in Resources */,
 				A99CE764256987E300BD3283 /* checkWord.py in Resources */,
@@ -272,6 +285,7 @@
 				A90E840025663F210086A644 /* Credits.rtf in Resources */,
 				A99CE7872569F0FF00BD3283 /* setMaxScore.py in Resources */,
 				A9AA645E256B4CA30087EC70 /* addWord.py in Resources */,
+				A9380AC02570E4100021C055 /* resetUserWords.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,9 +322,11 @@
 				A90E83E5256610890086A644 /* MainMenu.swift in Sources */,
 				A9AA6451256B0EEB0087EC70 /* CustomPickerModifier.swift in Sources */,
 				A90E83E8256610960086A644 /* GameView.swift in Sources */,
+				A9380AC62570F0FF0021C055 /* TextFieldModifier.swift in Sources */,
 				A9AA6449256B0E6F0087EC70 /* MenuButtonModifier.swift in Sources */,
 				A90E83EF256610EC0086A644 /* EnvObject.swift in Sources */,
 				A952AC6825677CAF00CAF55D /* CCommandRunner.c in Sources */,
+				A9380AC92570F11A0021C055 /* ButtonModifier.swift in Sources */,
 				A9AEE9A025703419004B1AC6 /* DebbugerObj.swift in Sources */,
 				A90E83D22565EE9E0086A644 /* AhorcadoApp.swift in Sources */,
 				A9AA6454256B0F430087EC70 /* DifficultyPicker.swift in Sources */,

@@ -44,7 +44,6 @@ struct CommandRunner {
     
     private static func searchNewestVersion(_ strWithVersions :  String) -> String {
         let strWithVersions = strWithVersions.replacingOccurrences(of: "/Library/Frameworks/Python.framework/Versions/", with: "").replacingOccurrences(of: "/bin/python3", with: "").replacingOccurrences(of: "/bin/python4", with: "").replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "∴", with: " ")
-        print(strWithVersions)
         var listOfVersions : [Float32] = []
         var tempValue : String = ""
         for i in strWithVersions{
@@ -55,9 +54,7 @@ struct CommandRunner {
                 tempValue += String(i)
             }
         }
-        print(listOfVersions)
         let newestVersion = String(listOfVersions.max()!)
-        print(listOfVersions.max()!)
         let gralNewestVersion = newestVersion[String.Index(utf16Offset: 0, in: newestVersion)]
         let newestVersionPath = "/Library/Frameworks/Python.framework/Versions/\(newestVersion)/bin/python\(gralNewestVersion)"
         
@@ -67,10 +64,7 @@ struct CommandRunner {
     static func searchPy3() -> String {
         
         shSearchForPython2(NSHomeDirectory())
-        print("Listo")
         var pythonPath = CommandRunner.execute(pyShell: "/bin/cat", arguments: ["\(NSHomeDirectory())/tempㄦ∴.txt"]) ?? ""
-        print(pythonPath)
-        print("Listo2")
         var strNumberOfResults : String = ""
         var numberOfResults : Int = 0
         
@@ -89,16 +83,13 @@ struct CommandRunner {
         if numberOfResults == 1 {
             pythonPath = pythonPath.replacingOccurrences(of: "∴", with: "")
         } else if numberOfResults > 1 {
-            print(pythonPath)
             pythonPath = CommandRunner.searchNewestVersion(pythonPath)
         } else if numberOfResults == 0 {
-            print(numberOfResults)
             pythonPath = ""
         }
         
         if pythonPath != "" { CommandRunner.voidExec("rm -f \(NSHomeDirectory())/tempㄦ∴.txt", pythonPath) }
         
-        print(pythonPath)
         return pythonPath
     }
 }

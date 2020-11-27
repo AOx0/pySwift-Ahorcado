@@ -42,7 +42,7 @@ struct SettingsView: View {
                                 .font(.system(size: 25))
                             Spacer()
                             Image("Help").resizable()
-                                .frame(width: 25, height: 25, alignment: .center)
+                                .frame(width: 20, height: 20, alignment: .center)
                                 .onHover(perform: { hovering in
                                     showDifficultyHelp = hovering
                                 })
@@ -84,7 +84,7 @@ struct SettingsView: View {
                                 .font(.system(size: 25))
                             Spacer()
                             Image("Help").resizable()
-                                .frame(width: 25, height: 25, alignment: .center)
+                                .frame(width: 20, height: 20, alignment: .center)
                                 .onHover(perform: { hovering in
                                     showAddWordHelp = hovering
                                 })
@@ -98,41 +98,46 @@ struct SettingsView: View {
                         
                         VStack(spacing: 0) {
                             TextField("", text: $newWord)
-                                .colorMultiply(.black)
-                                .accentColor(.black)
-                                .foregroundColor(.black)
-                                .textFieldStyle(PlainTextFieldStyle())
-                                .padding(5)
-                                .padding([.horizontal], 20.0)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 25.0)
-                                        .opacity(0.1)
-                                        .shadow(radius: 10)
-                                        
-                                )
-                                .padding(.bottom, 10)
+                                .gameTextField()
                             Text("Add Word")
-                                .shadow(radius: 20)
-                                .foregroundColor(.black)
-                                .padding(5)
-                                .padding([.horizontal], 20.0)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 20.0)
-                                        .foregroundColor(.black)
-                                        .opacity(0.12)
-                                        .shadow(radius: 20)
-                                )
-                                .onTapGesture {
-                                    print("Se agrega \(newWord)")
+                                .gameButton {
+                                    print("Se añade \(newWord)")
                                 }
                         }
                         .padding(.all, 10.0)
-//                        .background(
-//                            RoundedRectangle(cornerRadius: 10)
-//                                .opacity(0.1)
-//                                .shadow(radius: 20)
-//                                .frame(width: 350, alignment: .center)
-//                        )
+                        
+                        Divider()
+                            .colorMultiply(.black)
+                            .padding(.bottom, 10.0)
+                        
+                        HStack {
+                            Text("Reset All")
+                                .gameButton {
+                                    EnvObject.makeDefaultData()
+                                    let dificulty : String = CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) '\(Bundle.main.bundlePath)/Contents/Resources/getDifficulty.py' '\(NSHomeDirectory())'`")
+                                        
+                                    switch dificulty {
+                                        case "default": data.difficulty = .inDefault
+                                        case "easy": data.difficulty = .inEasy
+                                        default: data.difficulty = .inHard
+                                    }
+                                    data.maxScore = EnvObject.getMaxScore()
+                                }
+                            Text("Reset Added Words")
+                                .gameButton {
+                                    CommandRunner.voidExec("\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/resetUserWords.py '\(NSHomeDirectory())'")
+                                }
+                            
+                            Text("Reset Max Score")
+                                .gameButton {
+                                    CommandRunner.voidExec("\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/resetMaxScore.py '\(NSHomeDirectory())'")
+                                    data.maxScore = EnvObject.getMaxScore()
+                                }
+                            
+                        }
+                        .frame(width: geo.size.width, height: 20, alignment: .center)
+                       
+                            
                     }
                     .frame(width: 350, height: 20, alignment: .center)
                     
@@ -145,6 +150,7 @@ struct SettingsView: View {
         }
     }
 }
+
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {

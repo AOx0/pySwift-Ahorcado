@@ -94,13 +94,11 @@ class EnvObject : ObservableObject {
     @Published var displayedWord : String = ""
     @Published var letter : String = "" {
         didSet {
-            
-            if letter.count == 1 {
-                self.checarLetra(letter: letter)
-                letter = ""
-                if CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/checkIfWin.py '\(self.displayedWord)'`") == "win" {
-                    isWin = true
-                }
+            guard letter.count != 0 else { return }
+            let newChar = String(letter[String.Index(utf16Offset: (letter.count-1), in: letter)])
+            self.checarLetra(newChar: newChar)
+            if CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/checkIfWin.py '\(self.displayedWord)'`") == "win" {
+                isWin = true
             }
         }
     }
@@ -129,26 +127,24 @@ class EnvObject : ObservableObject {
                 case "easy": self.difficulty = .inEasy
                 default: self.difficulty = .inHard
             }
-            print("Flag 2")
             self.maxScore = EnvObject.getMaxScore()
-            print("Flag 3")
         } else {
             self.maxScore = MaxScore(inEasy: 0, inDefault: 0, inHard: 0)
         }
     }
     
+    
     public func generarPalabra() {
+        self.letter = ""
         self.word = CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/genWord.py '\(NSHomeDirectory())' '\(self.difficulty.passDifficulty())'`")
-        print(self.word)
         
         self.displayedWord = CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/genDisplayedWord.py '\(self.word.lowercased())' '\(self.difficulty.passDifficulty())'`")
         
-        print(self.displayedWord)
     }
     
-    public func checarLetra(letter: String) {
+    public func checarLetra(newChar: String) {
         let wordBefore = self.displayedWord
-        self.displayedWord = CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/checkWord.py '\(self.word.lowercased())' '\(self.letter.lowercased())' '\(self.displayedWord)'`")
+        self.displayedWord = CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/checkWord.py '\(self.word.lowercased())' '\(newChar.lowercased())' '\(self.displayedWord)'`")
         
         if wordBefore == self.displayedWord {
             lives -= 1
@@ -156,17 +152,12 @@ class EnvObject : ObservableObject {
     }
     
     static func getMaxScore() -> MaxScore {
-        print("1")
         let maxScoreString : String = CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath)/Contents/Resources/getMaxScore.py '\(NSHomeDirectory())'`")
-        print("2")
         var tempValue : String = ""
         var tempStage : Int = 1
         
         var inEasy = 0, inDefault = 0, inHard = 0
-        print(maxScoreString)
-        print("3")
         for char in maxScoreString {
-            print(tempValue)
             if char != ":" {
                 tempValue += String(char)
             } else {
@@ -180,13 +171,11 @@ class EnvObject : ObservableObject {
                 case 3:
                     inHard = Int(tempValue)!
                     tempStage = 1
-                default:
-                    print("Error")
+                default: break;
                 }
                 tempValue = ""
             }
         }
-        print("4")
         
         return MaxScore(inEasy: inEasy, inDefault: inDefault, inHard: inHard)
     }
@@ -196,11 +185,9 @@ class EnvObject : ObservableObject {
     }
 
     public static func makeDefaultData() {
-        print("Creando...")
         CommandRunner.voidExec("cd \(NSHomeDirectory())/Library/Application\\ Support/; mkdir AOX0")
         CommandRunner.voidExec("cd \(NSHomeDirectory())/Library/Application\\ Support/AOX0; touch save.json")
         CommandRunner.voidExec("cd \(NSHomeDirectory())/Library/Application\\ Support/AOX0; less \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/File.txt > save.json")
-        print("Listo.")
     }
     
     func setMaxScore() {
