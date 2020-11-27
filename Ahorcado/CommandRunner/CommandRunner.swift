@@ -88,9 +88,12 @@ struct CommandRunner {
         
         if numberOfResults == 1 {
             pythonPath = pythonPath.replacingOccurrences(of: "∴", with: "")
-        } else {
+        } else if numberOfResults > 1 {
             print(pythonPath)
             pythonPath = CommandRunner.searchNewestVersion(pythonPath)
+        } else if numberOfResults == 0 {
+            print(numberOfResults)
+            pythonPath = ""
         }
         
         if pythonPath != "" { CommandRunner.voidExec("rm -f \(NSHomeDirectory())/tempㄦ∴.txt", pythonPath) }

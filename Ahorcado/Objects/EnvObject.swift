@@ -52,7 +52,7 @@ class EnvObject : ObservableObject {
         }
     }
     
-    @Published var lives : Int = 4 {
+    @Published var lives : Int = 9 {
         didSet {
             if self.lives == 0 {
                 isLose = true
@@ -116,22 +116,25 @@ class EnvObject : ObservableObject {
         }
     }
     
-    init() {
-        if CommandRunner.execResult("cd \(NSHomeDirectory())/Library/Application\\ Support/; [ -d 'AOX0' ] && echo 'Exists.' || echo 'Error'").contains("Error") {
-            EnvObject.makeDefaultData()
-        }
-        
-        let dificulty : String = CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) '\(Bundle.main.bundlePath)/Contents/Resources/getDifficulty.py' '\(NSHomeDirectory())'`")
+    init(noPython : Bool = false) {
+        if !noPython {
+            if CommandRunner.execResult("cd \(NSHomeDirectory())/Library/Application\\ Support/; [ -d 'AOX0' ] && echo 'Exists.' || echo 'Error'").contains("Error") {
+                EnvObject.makeDefaultData()
+            }
             
-        switch dificulty {
-            case "default": self.difficulty = .inDefault
-            case "easy": self.difficulty = .inEasy
-            default: self.difficulty = .inHard
+            let dificulty : String = CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) '\(Bundle.main.bundlePath)/Contents/Resources/getDifficulty.py' '\(NSHomeDirectory())'`")
+                
+            switch dificulty {
+                case "default": self.difficulty = .inDefault
+                case "easy": self.difficulty = .inEasy
+                default: self.difficulty = .inHard
+            }
+            print("Flag 2")
+            self.maxScore = EnvObject.getMaxScore()
+            print("Flag 3")
+        } else {
+            self.maxScore = MaxScore(inEasy: 0, inDefault: 0, inHard: 0)
         }
-        print("Flag 2")
-        self.maxScore = EnvObject.getMaxScore()
-        print("Flag 3")
-        
     }
     
     public func generarPalabra() {
