@@ -101,7 +101,7 @@ struct SettingsView: View {
                                 .gameTextField()
                             Text("Add Word")
                                 .gameButton {
-                                    print("Se añade \(newWord)")
+                                    CommandRunner.voidExec("\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/addWord.py '\(NSHomeDirectory())' '\(newWord)'")
                                 }
                         }
                         .padding(.all, 10.0)

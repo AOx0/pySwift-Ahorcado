@@ -11,18 +11,12 @@
     ]
   },
   "userWords": {
-    "hardWords": [
-        "Hola me llamo pedro"
-    ],
-    "defaultWords": [
-        "Hola me llamo pedro"
-    ],
-    "easyWords": [
-        "Hola me llamo pedro"
-    ]
+    "hardWords": [],
+    "defaultWords": [],
+    "easyWords": []
   },
   "maxScore": {
-    "inEasy": 15,
+    "inEasy": 0,
     "inDefault": 0,
     "inHard": 0
   },

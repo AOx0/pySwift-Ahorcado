@@ -1,7 +1,7 @@
 import sys
 
 word = sys.argv[1]
-letter = sys.argv[2]
+letter = sys.argv[2].lower()
 displayedWord = sys.argv[3]
 
 indexes = []
