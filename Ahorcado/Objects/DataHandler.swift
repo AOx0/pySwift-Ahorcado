@@ -8,7 +8,7 @@
 import Foundation
 
 class DataHandler : ObservableObject {
-    let debugger : DebuggerObj = DebuggerObj()
+    let debugger : Debugger = Debugger()
     
     static public func getMaxScore() -> MaxScore {
         let maxScoreString : String = CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath)/Contents/Resources/getMaxScore.py '\(NSHomeDirectory())'`")

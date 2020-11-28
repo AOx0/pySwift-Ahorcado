@@ -40,7 +40,7 @@ struct GameView: View {
             .ignoresSafeArea(edges: .all)
         }
         .alert(isPresented: $data.showLoseMessage) {
-            Alert(title: Text("GameOver"), message: Text("You lost all your lives :'D\nScore: \(data.score)"), primaryButton: .default(Text("Retry"), action: {data.showLoseMessage.toggle()}), secondaryButton: .default(Text("Exit"), action: {data.showLoseMessage.toggle(); data.stage = .inMenu}))
+            Alert(title: Text("GameOver"), message: Text("You lost all your lives :'D\nScore: \(data.score)"), primaryButton: .default(Text("Retry"), action: {data.showLoseMessage.toggle();data.generateWord()}), secondaryButton: .default(Text("Exit"), action: {data.showLoseMessage.toggle(); data.stage = .inMenu}))
         }
     }
 }

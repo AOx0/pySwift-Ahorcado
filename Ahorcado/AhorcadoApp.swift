@@ -6,12 +6,15 @@
 // "\()\n"
 
 import SwiftUI
+import AppKit
+
 
 @main
 struct AhorcadoApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State var whenPythonNotInstalled = !CommandRunner.pythonIsInstalled
     @Environment(\.openURL) var openURL
+    @Environment(\.scenePhase) var scenePhase
     
     let envObj : EnvObject
     let handlerObj : DataHandler
@@ -31,6 +34,9 @@ struct AhorcadoApp: App {
         self.handlerObj.debugger.debuggerText += "User Path: \(NSHomeDirectory())\n"
         self.handlerObj.debugger.debuggerText += "Python Path: \(CommandRunner.pyPath.parsedPath)\n"
         self.handlerObj.debugger.debuggerText += "App path: \(Bundle.main.bundlePath.parsedPath)\n"
+        
+        GameMusicPlayer.sound.loops = true
+        GameMusicPlayer.sound.play()
     }
     
     var body: some Scene {
@@ -39,6 +45,12 @@ struct AhorcadoApp: App {
                 ContentView()
                     .environmentObject(envObj)
                     .environmentObject(handlerObj)
+                    .onLongPressGesture {
+                        GameMusicPlayer.sound.stop()
+                        GameMusicPlayer.sound = NSSound(contentsOfFile: "/Users/alejandro/Downloads/Frank Ocean - Chanel.m4a", byReference: true)!
+                        GameMusicPlayer.sound.loops = true
+                        GameMusicPlayer.sound.play()
+                    }
             } else {
                 ZStack{
                     Text("")
@@ -51,6 +63,18 @@ struct AhorcadoApp: App {
             }
         }
         .windowStyle(HiddenTitleBarWindowStyle())
+        .onChange(of: scenePhase) { change in
+            switch change {
+            case .background:
+                GameMusicPlayer.sound.pause()
+            case .inactive:
+                GameMusicPlayer.sound.pause()
+            case .active:
+                GameMusicPlayer.sound.resume()
+            @unknown default:
+                GameMusicPlayer.sound.pause()
+            }
+        }
     }
 }
 

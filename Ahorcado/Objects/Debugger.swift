@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DebuggerObj {
+class Debugger {
     @Published var debuggerText : String = ""
     @Published var isEnabled : Bool = false
 }

@@ -15,7 +15,7 @@
 		A90E83E8256610960086A644 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90E83E7256610960086A644 /* GameView.swift */; };
 		A90E83EB256610A50086A644 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90E83EA256610A50086A644 /* SettingsView.swift */; };
 		A90E83EF256610EC0086A644 /* EnvObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90E83EE256610EC0086A644 /* EnvObject.swift */; };
-		A90E83F825662DC30086A644 /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = A90E83F725662DC30086A644 /* File.txt */; };
+		A90E83F825662DC30086A644 /* DefaultSave.json in Resources */ = {isa = PBXBuildFile; fileRef = A90E83F725662DC30086A644 /* DefaultSave.json */; };
 		A90E840025663F210086A644 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A90E83FF25663F210086A644 /* Credits.rtf */; };
 		A9380AC02570E4100021C055 /* resetUserWords.py in Resources */ = {isa = PBXBuildFile; fileRef = A9380ABF2570E4100021C055 /* resetUserWords.py */; };
 		A9380AC32570E9300021C055 /* resetMaxScore.py in Resources */ = {isa = PBXBuildFile; fileRef = A9380AC22570E9300021C055 /* resetMaxScore.py */; };
@@ -38,7 +38,8 @@
 		A9AA645E256B4CA30087EC70 /* addWord.py in Resources */ = {isa = PBXBuildFile; fileRef = A9AA645D256B4CA30087EC70 /* addWord.py */; };
 		A9AD81292571F7D6005DD175 /* EnvObj_Imp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD81282571F7D6005DD175 /* EnvObj_Imp.swift */; };
 		A9AD812C2571F8FD005DD175 /* EnvObj_DidSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD812B2571F8FD005DD175 /* EnvObj_DidSet.swift */; };
-		A9AEE9A025703419004B1AC6 /* DebuggerObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AEE99F25703419004B1AC6 /* DebuggerObj.swift */; };
+		A9AD813125722CE4005DD175 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD813025722CE4005DD175 /* MusicPlayer.swift */; };
+		A9AEE9A025703419004B1AC6 /* Debugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AEE99F25703419004B1AC6 /* Debugger.swift */; };
 		A9F119212571EDF2007FA6B6 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F119202571EDF2007FA6B6 /* DataHandler.swift */; };
 		A9FC90F42567966D009A086D /* CommandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FC90F32567966D009A086D /* CommandRunner.swift */; };
 /* End PBXBuildFile section */
@@ -55,7 +56,7 @@
 		A90E83E7256610960086A644 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		A90E83EA256610A50086A644 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A90E83EE256610EC0086A644 /* EnvObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvObject.swift; sourceTree = "<group>"; };
-		A90E83F725662DC30086A644 /* File.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = File.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
+		A90E83F725662DC30086A644 /* DefaultSave.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DefaultSave.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		A90E83FF25663F210086A644 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		A9380ABF2570E4100021C055 /* resetUserWords.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = resetUserWords.py; sourceTree = "<group>"; };
 		A9380AC22570E9300021C055 /* resetMaxScore.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = resetMaxScore.py; sourceTree = "<group>"; };
@@ -80,7 +81,8 @@
 		A9AA645D256B4CA30087EC70 /* addWord.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = addWord.py; sourceTree = "<group>"; };
 		A9AD81282571F7D6005DD175 /* EnvObj_Imp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvObj_Imp.swift; sourceTree = "<group>"; };
 		A9AD812B2571F8FD005DD175 /* EnvObj_DidSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvObj_DidSet.swift; sourceTree = "<group>"; };
-		A9AEE99F25703419004B1AC6 /* DebuggerObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebuggerObj.swift; sourceTree = "<group>"; };
+		A9AD813025722CE4005DD175 /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
+		A9AEE99F25703419004B1AC6 /* Debugger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debugger.swift; sourceTree = "<group>"; };
 		A9F119202571EDF2007FA6B6 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		A9FC90F32567966D009A086D /* CommandRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandRunner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				A90E83D12565EE9E0086A644 /* AhorcadoApp.swift */,
-				A90E83F725662DC30086A644 /* File.txt */,
+				A90E83F725662DC30086A644 /* DefaultSave.json */,
 				A9A2CFF525679F0400E60EC1 /* Python */,
 				A90E83FF25663F210086A644 /* Credits.rtf */,
 				A90E83D32565EE9E0086A644 /* ContentView.swift */,
@@ -158,7 +160,8 @@
 				A9AD81282571F7D6005DD175 /* EnvObj_Imp.swift */,
 				A9AD812B2571F8FD005DD175 /* EnvObj_DidSet.swift */,
 				A9F119202571EDF2007FA6B6 /* DataHandler.swift */,
-				A9AEE99F25703419004B1AC6 /* DebuggerObj.swift */,
+				A9AEE99F25703419004B1AC6 /* Debugger.swift */,
+				A9AD813025722CE4005DD175 /* MusicPlayer.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -289,7 +292,7 @@
 				A99CE7842569F0EC00BD3283 /* setDifficulty.py in Resources */,
 				A99CE77F2569ED4600BD3283 /* getMaxScore.py in Resources */,
 				A99CE764256987E300BD3283 /* checkWord.py in Resources */,
-				A90E83F825662DC30086A644 /* File.txt in Resources */,
+				A90E83F825662DC30086A644 /* DefaultSave.json in Resources */,
 				A9A2CFF725679F2100E60EC1 /* genWord.py in Resources */,
 				A90E840025663F210086A644 /* Credits.rtf in Resources */,
 				A99CE7872569F0FF00BD3283 /* setMaxScore.py in Resources */,
@@ -339,10 +342,11 @@
 				A952AC6825677CAF00CAF55D /* CCommandRunner.c in Sources */,
 				A9380AC92570F11A0021C055 /* ButtonModifier.swift in Sources */,
 				A9AD812C2571F8FD005DD175 /* EnvObj_DidSet.swift in Sources */,
-				A9AEE9A025703419004B1AC6 /* DebuggerObj.swift in Sources */,
+				A9AEE9A025703419004B1AC6 /* Debugger.swift in Sources */,
 				A90E83D22565EE9E0086A644 /* AhorcadoApp.swift in Sources */,
 				A9AA6454256B0F430087EC70 /* DifficultyPicker.swift in Sources */,
 				A9AA6459256B11580087EC70 /* StageViewModifier.swift in Sources */,
+				A9AD813125722CE4005DD175 /* MusicPlayer.swift in Sources */,
 				A9AA644C256B0E9B0087EC70 /* SetUpModifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
