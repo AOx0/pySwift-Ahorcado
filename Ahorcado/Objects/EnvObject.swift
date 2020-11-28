@@ -42,20 +42,5 @@ class EnvObject : ObservableObject {
             self.maxScore = MaxScore(inEasy: 0, inDefault: 0, inHard: 0)
         }
     }
-    
-    func generateWord() {
-        self.letter = ""
-        self.word = getRandomWord()
-        self.displayedWord = containsSpecialChars() ? swiftGenDisplayWord() : pythonGenDisplayWord()
-    }
-    
-    func checarLetra(newChar: String) {
-        let wordBefore = self.displayedWord
-        self.displayedWord = CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/checkWord.py '\(self.word.lowercased())' '\(newChar.lowercased())' '\(self.displayedWord)'`")
-        
-        if wordBefore == self.displayedWord {
-            lives -= 1
-        }
-    }
 }
 

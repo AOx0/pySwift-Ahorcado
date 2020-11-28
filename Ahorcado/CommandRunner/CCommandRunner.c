@@ -8,20 +8,7 @@
 #include "CCommandRunner.h"
 #include "stdlib.h"
 
-// Deprecated
 void shSearchForPython(const char *userPath) {
-    char command[150] = "";
-    char command2[150] = "";
-    sprintf(command, "%s%s%s", "cd ", userPath, "; echo `which python3` > 'tempㄦ∴.txt'");
-    sprintf(command2, "%s%s%s", "cd ", userPath, "; echo ∴ >> 'tempㄦ∴.txt'");
-    
-    system(command);
-    system(command2);
-    
-
-}
-
-void shSearchForPython2(const char *userPath) {
     char command1[150] = "";
     char command2[150] = "";
     char command3[150] = "";

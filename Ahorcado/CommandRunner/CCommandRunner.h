@@ -10,9 +10,6 @@
 
 #include <stdio.h>
 
-// Deprecated
 void shSearchForPython(const char *userPath);
-
-void shSearchForPython2(const char *userPath);
 
 #endif /* CCommandRunner_h */

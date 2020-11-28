@@ -9,7 +9,13 @@ import Foundation
 
 struct CommandRunner {
     static var pyPath = ""
-    
+    static var pythonIsInstalled : Bool {
+        if searchPy3() != "" {
+            return true
+        } else {
+            return false
+        }
+    }
     static func execute(pyShell command: String, arguments: [String] = []) -> String? {
         let process = Process()
         process.launchPath = command
@@ -63,7 +69,7 @@ struct CommandRunner {
     
     static func searchPy3() -> String {
         
-        shSearchForPython2(NSHomeDirectory())
+        shSearchForPython(NSHomeDirectory())
         var pythonPath = CommandRunner.execute(pyShell: "/bin/cat", arguments: ["\(NSHomeDirectory())/tempㄦ∴.txt"]) ?? ""
         var strNumberOfResults : String = ""
         var numberOfResults : Int = 0
