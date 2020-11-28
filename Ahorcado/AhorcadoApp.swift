@@ -14,24 +14,24 @@ struct AhorcadoApp: App {
     @Environment(\.openURL) var openURL
     
     let envObj : EnvObject
-    let bugObj : DebbugerObj
+    let handlerObj : DataHandler
     
     init() {
-        self.bugObj = DebbugerObj()
+        self.handlerObj = DataHandler()
         
         if CommandRunner.searchPy3() != "" {
-            self.bugObj.debuggerText += "Normal Init...\n"
+            self.handlerObj.debugger.debuggerText += "Normal Init...\n"
             CommandRunner.pyPath = String(CommandRunner.searchPy3())
-            self.envObj = EnvObject()
+            self.envObj = EnvObject(pythonIsInstalled: true)
         } else {
-            self.bugObj.debuggerText += "Anormal init...\n"
+            self.handlerObj.debugger.debuggerText += "Anormal init...\n"
             print("Anormal init...")
-            self.envObj = EnvObject(noPython: true)
+            self.envObj = EnvObject(pythonIsInstalled: false)
         }
         
-        self.bugObj.debuggerText += "User Path: \(NSHomeDirectory())\n"
-        self.bugObj.debuggerText += "Python Path: \(CommandRunner.pyPath.parsedPath)\n"
-        self.bugObj.debuggerText += "App path: \(Bundle.main.bundlePath.parsedPath)\n"
+        self.handlerObj.debugger.debuggerText += "User Path: \(NSHomeDirectory())\n"
+        self.handlerObj.debugger.debuggerText += "Python Path: \(CommandRunner.pyPath.parsedPath)\n"
+        self.handlerObj.debugger.debuggerText += "App path: \(Bundle.main.bundlePath.parsedPath)\n"
     }
     
     var body: some Scene {
@@ -39,7 +39,7 @@ struct AhorcadoApp: App {
             if CommandRunner.searchPy3() != "" {
                 ContentView()
                     .environmentObject(envObj)
-                    .environmentObject(bugObj)
+                    .environmentObject(handlerObj)
             } else {
                 ZStack{
                     Text("")

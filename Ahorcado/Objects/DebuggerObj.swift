@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DebbugerObj : ObservableObject {
+class DebuggerObj {
     @Published var debuggerText : String = ""
     @Published var isEnabled : Bool = false
 }

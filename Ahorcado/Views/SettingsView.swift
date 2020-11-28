@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var data : EnvObject
-    @EnvironmentObject var debbuger : DebbugerObj
+    @EnvironmentObject var dataHandler : DataHandler
     
     @State var showAddWordHelp : Bool = false
     @State var showDifficultyHelp : Bool = false
@@ -31,7 +31,7 @@ struct SettingsView: View {
                         .font(.system(size: 70))
                         .padding()
                         .onLongPressGesture {
-                            debbuger.isEnabled.toggle()
+                            dataHandler.debugger.isEnabled.toggle()
                         }
                     Spacer()
                     
@@ -60,11 +60,11 @@ struct SettingsView: View {
                         .frame(width: 200, height: 20, alignment: .center)
                         
                         VStack(spacing: 0) {
-                            Text("Max Score (\(GameDifficulty.inEasy.passDifficulty().capitalized)): \t\(data.getModeMaxScore(GameDifficulty.inEasy))")
+                            Text("Max Score (\(GameDifficulty.inEasy.passDifficulty().capitalized)): \t\(data.showMaxScoreOf(difficulty: GameDifficulty.inEasy))")
                                 .foregroundColor(.black)
-                            Text("Max Score (\(GameDifficulty.inDefault.passDifficulty().capitalized)): \t\(data.getModeMaxScore(GameDifficulty.inDefault))")
+                            Text("Max Score (\(GameDifficulty.inDefault.passDifficulty().capitalized)): \t\(data.showMaxScoreOf(difficulty: GameDifficulty.inDefault))")
                                 .foregroundColor(.black)
-                            Text("Max Score (\(GameDifficulty.inHard.passDifficulty().capitalized)): \t\(data.getModeMaxScore(GameDifficulty.inHard))")
+                            Text("Max Score (\(GameDifficulty.inHard.passDifficulty().capitalized)): \t\(data.showMaxScoreOf(difficulty: GameDifficulty.inHard))")
                                 .foregroundColor(.black)
                         }
                         .padding(.all, 10.0)
@@ -113,15 +113,9 @@ struct SettingsView: View {
                         HStack {
                             Text("Reset All")
                                 .gameButton {
-                                    EnvObject.makeDefaultData()
-                                    let dificulty : String = CommandRunner.execResult("echo `\(CommandRunner.pyPath.parsedPath) '\(Bundle.main.bundlePath)/Contents/Resources/getDifficulty.py' '\(NSHomeDirectory())'`")
-                                        
-                                    switch dificulty {
-                                        case "default": data.difficulty = .inDefault
-                                        case "easy": data.difficulty = .inEasy
-                                        default: data.difficulty = .inHard
-                                    }
-                                    data.maxScore = EnvObject.getMaxScore()
+                                    DataHandler.makeDefaultData()
+                                    data.difficulty = DataHandler.getDifficulty()
+                                    data.maxScore = DataHandler.getMaxScore()
                                 }
                             Text("Reset Added Words")
                                 .gameButton {
@@ -131,7 +125,7 @@ struct SettingsView: View {
                             Text("Reset Max Score")
                                 .gameButton {
                                     CommandRunner.voidExec("\(CommandRunner.pyPath.parsedPath) \(Bundle.main.bundlePath.parsedPath)/Contents/Resources/resetMaxScore.py '\(NSHomeDirectory())'")
-                                    data.maxScore = EnvObject.getMaxScore()
+                                    data.maxScore = DataHandler.getMaxScore()
                                 }
                             
                         }
@@ -150,12 +144,3 @@ struct SettingsView: View {
         }
     }
 }
-
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-    }
-}
-
-

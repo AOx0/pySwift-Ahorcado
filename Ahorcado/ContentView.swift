@@ -13,7 +13,7 @@ extension Color{
 
 struct ContentView: View {
     @EnvironmentObject var data : EnvObject
-    @EnvironmentObject var debugger : DebbugerObj
+    @EnvironmentObject var dataHandler : DataHandler
     
     @SceneBuilder
     var body: some View {
@@ -33,8 +33,8 @@ struct ContentView: View {
                         .stageViewMode(geo: geo, envObject: data)
             }
             
-            if debugger.isEnabled {
-                Text("\(debugger.debuggerText)")
+            if dataHandler.debugger.isEnabled {
+                Text("\(dataHandler.debugger.debuggerText)")
                     .font(.system(size: 10))
                     .foregroundColor(.red)
                     .frame(width: geo.size.width, height: geo.size.height, alignment: .bottomLeading)

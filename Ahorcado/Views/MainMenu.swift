@@ -19,13 +19,13 @@ struct MainMenu: View {
                         .foregroundColor(.black)
                         .font(.system(size: 100))
                     
-                    Text("Max Score (\(data.difficulty.passDifficulty().capitalized)): \(data.getModeMaxScore())")
+                    Text("Max Score (\(data.difficulty.passDifficulty().capitalized)): \(data.showMaxScoreOf(difficulty: data.difficulty))")
                         .foregroundColor(.black)
                     
                     Text("Play")
                         .bold()
                         .menuButton {
-                            data.generarPalabra()
+                            data.generateWord()
                             withAnimation {
                                 data.stage = .inGame
                             }
@@ -46,11 +46,5 @@ struct MainMenu: View {
             .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
             .ignoresSafeArea(edges: .all)
         }
-    }
-}
-
-struct MainMenu_Previews: PreviewProvider {
-    static var previews: some View {
-        MainMenu().environmentObject(EnvObject())
     }
 }
