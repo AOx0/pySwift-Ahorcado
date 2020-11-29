@@ -13,13 +13,83 @@ struct GameView: View {
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                VStack {
-                    HStack {
+                switch data.lives {
+                case 9:
+                    Image("part0").resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(0)
+                        .ignoresSafeArea(edges: .bottom)
+                        .frame(alignment: Alignment.bottomTrailing)
+                    
+                case 8:
+                    Image("part1").resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(0)
+                        .ignoresSafeArea(edges: .bottom)
+                        .frame(alignment: Alignment.bottomTrailing)
+                case 7:
+                    Image("part2").resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(0)
+                        .ignoresSafeArea(edges: .bottom)
+                        .frame(alignment: Alignment.bottomTrailing)
+                case 6:
+                    Image("part3").resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(0)
+                        .ignoresSafeArea(edges: .bottom)
+                        .frame(alignment: Alignment.bottomTrailing)
+                case 5:
+                    Image("part4").resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(0)
+                        .ignoresSafeArea(edges: .bottom)
+                        .frame(alignment: Alignment.bottomTrailing)
+                case 4:
+                    Image("part5").resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(0)
+                        .ignoresSafeArea(edges: .bottom)
+                        .frame(alignment: Alignment.bottomTrailing)
+                case 3:
+                    Image("part6").resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(0)
+                        .ignoresSafeArea(edges: .bottom)
+                        .frame(alignment: Alignment.bottomTrailing)
+                case 2:
+                    Image("part7").resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(0)
+                        .ignoresSafeArea(edges: .bottom)
+                        .frame(alignment: Alignment.bottomTrailing)
+                case 1:
+                    Image("part8").resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(0)
+                        .ignoresSafeArea(edges: .bottom)
+                        .frame(alignment: Alignment.bottomTrailing)
+                case 0:
+                    Image("part9").resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(0)
+                        .ignoresSafeArea(edges: .bottom)
+                        .frame(alignment: Alignment.bottomTrailing)
+                default:
+                    Image("part0").resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(0)
+                        .ignoresSafeArea(edges: .bottom)
+                        .frame(alignment: Alignment.bottomTrailing)
+                }
+                
+                HStack {
+                    VStack {
                         Spacer()
                         Text("Lives: \(data.lives)")
-                            .font(.system(size: 25))
+                            .font(.system(size: 30))
                         Text("Score: \(data.score)")
-                            .font(.system(size: 25))
+                            .font(.system(size: 30))
                     }
                     .foregroundColor(.black)
                     .padding()
@@ -39,8 +109,10 @@ struct GameView: View {
             .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
             .ignoresSafeArea(edges: .all)
         }
+        .ignoresSafeArea(edges: .all)
         .alert(isPresented: $data.showLoseMessage) {
-            Alert(title: Text("GameOver"), message: Text("You lost all your lives :'D\nScore: \(data.score)"), primaryButton: .default(Text("Retry"), action: {data.showLoseMessage.toggle();data.generateWord()}), secondaryButton: .default(Text("Exit"), action: {data.showLoseMessage.toggle(); data.stage = .inMenu}))
+            Alert(title: Text("GameOver"), message: Text("You lost all your lives :'D\nScore: \(data.score)"), primaryButton: .default(Text("Retry"), action: {data.showLoseMessage.toggle();data.generateWord();data.lives = 9}), secondaryButton: .default(Text("Exit"), action: {data.showLoseMessage.toggle(); data.stage = .inMenu}))
         }
+        
     }
 }

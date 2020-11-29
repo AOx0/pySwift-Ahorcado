@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension EnvObject {
     func gameLostActions() {
@@ -16,7 +17,7 @@ extension EnvObject {
             default: if score > maxScore.inHard { self.maxScore.inHard = score }
         }
         self.score = 0
-        self.lives = 9
+        
         self.isLose = false
     }
     

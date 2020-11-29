@@ -1,13 +1,27 @@
 {
   "wordsList": {
     "hardWords": [
-      "holaH"
+      "el perro está mojado",
+      "él se llama pedro",
+      "xóchitl",
+      "modificar",
+      "ventanal"
     ],
     "defaultWords": [
-      "holaD"
+      "azul",
+      "llorar",
+      "cama",
+      "correa",
+      "pájaro"
     ],
     "easyWords": [
-      "Hola me llamo pedro"
+      "hola",
+      "gato",
+      "perro",
+      "gota",
+      "banco",
+      "niño",
+      "añora"
     ]
   },
   "userWords": {

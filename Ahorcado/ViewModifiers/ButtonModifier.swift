@@ -11,6 +11,7 @@ struct ButtonModifier : ViewModifier {
     let action : () -> ()
     func body(content: Content) -> some View {
         content
+
             .shadow(radius: 20)
             .foregroundColor(.black)
             .padding(5)
@@ -24,5 +25,6 @@ struct ButtonModifier : ViewModifier {
             .onTapGesture {
                 action()
             }
+        
     }
 }

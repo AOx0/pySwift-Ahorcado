@@ -9,6 +9,10 @@ import SwiftUI
 
 struct MainMenu: View {
     @EnvironmentObject var data : EnvObject
+    @State var playHover : Bool = false
+    @State var settingsHover : Bool = false
+    @State var exitHover : Bool = false
+        
     
     var body: some View {
         GeometryReader { geo in
@@ -30,6 +34,10 @@ struct MainMenu: View {
                                 data.stage = .inGame
                             }
                         }
+                        .onHover { hover in
+                            playHover = hover
+                        }
+                        .opacity(playHover ? 1 : 0.8)
                     
                     Text("Settings")
                         .menuButton {
@@ -37,10 +45,19 @@ struct MainMenu: View {
                                 data.stage = .inSettings
                             }
                         }
+                        .onHover { hover in
+                            settingsHover = hover
+                        }
+                        .opacity(settingsHover ? 1 : 0.8)
                     Text("Exit")
                         .menuButton {
+                            GameMusicPlayer.stopSound()
                             exit(0)
                         }
+                        .onHover { hover in
+                            exitHover = hover
+                        }
+                        .opacity(exitHover ? 1 : 0.8)
                 }
             }
             .frame(width: geo.size.width, height: geo.size.height, alignment: .center)

@@ -43,14 +43,9 @@ struct AhorcadoApp: App {
         WindowGroup {
             if CommandRunner.pythonIsInstalled {
                 ContentView()
+                    .edgesIgnoringSafeArea(.all)
                     .environmentObject(envObj)
                     .environmentObject(handlerObj)
-                    .onLongPressGesture {
-                        GameMusicPlayer.sound.stop()
-                        GameMusicPlayer.sound = NSSound(contentsOfFile: "/Users/alejandro/Downloads/Frank Ocean - Chanel.m4a", byReference: true)!
-                        GameMusicPlayer.sound.loops = true
-                        GameMusicPlayer.sound.play()
-                    }
             } else {
                 ZStack{
                     Text("")
@@ -84,7 +79,11 @@ func noPythonAlert(openURL : OpenURLAction) -> Alert {
         message: Text("Python 3 no encontrado en /Library/Frameworks/Python.framework/Versions.\nInstale Python 3 de python.org y vuelva a intentar."),
         primaryButton: .default(
             Text("Ok"),
-            action: {exit(0)}
+            action: {
+                GameMusicPlayer.stopSound()
+                exit(0)
+                
+            }
         ),
         secondaryButton: .default(
             Text("Install Python"),
@@ -96,6 +95,10 @@ func noPythonAlert(openURL : OpenURLAction) -> Alert {
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
+    }
+    
+    func applicationWillTerminate(_ notification: Notification) {
+        GameMusicPlayer.stopSound()
     }
 }
 

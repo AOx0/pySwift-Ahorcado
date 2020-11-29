@@ -25,6 +25,7 @@ struct ContentView: View {
                 case .inGame:
                     GameView()
                         .stageViewMode(geo: geo, envObject: data)
+                        .edgesIgnoringSafeArea(.bottom)
                 case .inSettings:
                     SettingsView()
                         .stageViewMode(geo: geo, envObject: data)
@@ -40,8 +41,8 @@ struct ContentView: View {
                     .frame(width: geo.size.width, height: geo.size.height, alignment: .bottomLeading)
             }
         }
-        .frame(minWidth: 800, idealWidth: 800, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 450, idealHeight: 450, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-        
+        .frame(minWidth: 800, idealWidth: 800, maxWidth: .infinity*1.6, minHeight: 450, idealHeight: 450, maxHeight: (.infinity/2)*1.6, alignment: .center)
+        .edgesIgnoringSafeArea(.all)
         
     }
 }

@@ -31,7 +31,10 @@ elif difficulty == "default":
             break;
 else:
     for i in sys.argv[1]:
-        generatedDisplayWord += "ˍ"
+        if i == " ":
+            generatedDisplayWord += " "
+        else:
+            generatedDisplayWord += "ˍ"
 
 
 print(generatedDisplayWord)

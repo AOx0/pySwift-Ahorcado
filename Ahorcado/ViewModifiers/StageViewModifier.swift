@@ -31,13 +31,15 @@ struct StageView : ViewModifier {
                         
                         if data.stage == .inGame{
                             data.isLose = true
+                            data.lives = 9
                         }
                         
                         withAnimation {
                             data.stage = .inMenu
                         }
                     }
-                    .padding()
+                    .padding([.top], 32)
+                    .padding([.leading], 20)
                     Spacer()
                 }
             }

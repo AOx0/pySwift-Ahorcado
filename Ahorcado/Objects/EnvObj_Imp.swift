@@ -7,8 +7,27 @@
 
 import Foundation
 import GameKit
+import SwiftUI
 
 extension EnvObject {
+    
+    func countAccentChars(_ text : String) -> Int {
+        var text = text
+        text = text.replacingOccurrences(of: "ó", with: "1")
+        text = text.replacingOccurrences(of: "á", with: "1")
+        text = text.replacingOccurrences(of: "é", with: "1")
+        text = text.replacingOccurrences(of: "ú", with: "1")
+        text = text.replacingOccurrences(of: "í", with: "1")
+        
+        var num = 0
+        for i in text{
+            if String(i) == "1" {
+                num += 1
+            }
+        }
+        
+        return num
+    }
     
     func generateWord() {
         self.letter = ""
@@ -24,15 +43,29 @@ extension EnvObject {
     
     func swiftCheckLetter(newChar: String) {
         var indexes : [Int] = []
-        for index in 0...word.count {
-            if self.word.getCharIn(index: index) == newChar {
+        let word_array = Array(self.word)
+        
+        var index = 0
+        for i in Array(self.word) {
+            if String(i) == newChar {
                 indexes.append(index)
             }
+            index += 1
         }
         
+        var displayed_array = Array(self.displayedWord)
+        
         for index in indexes {
-            self.displayedWord.replaceSubrange(String.Index(utf16Offset: index, in: self.displayedWord)..<String.Index(utf16Offset: index+1, in: self.displayedWord), with: self.word.getCharIn(index: index))
+            displayed_array[index] = word_array[index]
         }
+        
+        var finaldisplayed = ""
+        
+        for i in displayed_array {
+            finaldisplayed += String(i)
+        }
+        
+        self.displayedWord = finaldisplayed
     }
     
     func checarLetra(newChar: String) {
@@ -44,14 +77,16 @@ extension EnvObject {
         }
         
         if self.displayedWord == wordBefore {
-            lives -= 1
+            withAnimation {
+                lives -= 1
+            }
         }
     }
     
     func genWord(word : String) -> String {
         var generatedDisplayWord = ""
         for i in word {
-            if i == " " {
+            if String(i) == " " {
                 generatedDisplayWord += " "
             } else if true {
                 let possibility : [Int] = [1,1,1,1,2,2]
@@ -85,8 +120,8 @@ extension EnvObject {
                 break;
             }
         case .inHard:
-            for _ in self.word {
-                generatedDisplayWord += "ˍ"
+            for char in self.word {
+                if String(char) == " " { generatedDisplayWord += " " } else { generatedDisplayWord += "ˍ" }
             }
         }
         return generatedDisplayWord
