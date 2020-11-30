@@ -17,6 +17,12 @@ struct MainMenu: View {
     var body: some View {
         GeometryReader { geo in
             ZStack {
+                Image("Background").resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(0)
+                    .ignoresSafeArea(edges: .bottom)
+                    .frame(alignment: Alignment.bottomTrailing)
+                
                 VStack {
                     Text("Ahorcado")
                         .bold()
