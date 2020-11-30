@@ -17,3 +17,16 @@ The general structure the program has is the following one:
 
 Every progress in the game score ore changes in the list of words or difficulty is saved in a "save.json" file created in the first run of the program and loaded in every launch.
 
+
+
+## Screenshots of the game:
+
+![img](https://github.com/AOx0/pySwift-Ahorcado/blob/main/Res/GameplayImage.png)
+
+
+
+![img](https://github.com/AOx0/pySwift-Ahorcado/blob/main/Res/MenuImage.png)
+
+
+
+![img](https://github.com/AOx0/pySwift-Ahorcado/blob/main/Res/SettingsImage.png)
