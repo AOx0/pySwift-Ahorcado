@@ -3,7 +3,7 @@ Project for the Python 3 course "Aprendiz de Python 3", given by the Engeenier L
 
 
 
-The project was developed with Xcode 12.2 Beta 3 (12B5035g), using SwiftUI, Swift 5 and the New SwiftUI Cycle.
+The project was developed with Xcode versión 12.2 (12B45b), using SwiftUI, Swift 5 and the New SwiftUI Cycle.
 
 
 
