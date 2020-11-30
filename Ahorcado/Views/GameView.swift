@@ -83,6 +83,17 @@ struct GameView: View {
                         .frame(alignment: Alignment.bottomTrailing)
                 }
                 
+                if data.score == 0 && data.letter == "" && data.lives == 9 {
+                    VStack {
+                        Text("¿Cuantás palabras puedes adivinar con solo 9 vidas?")
+                            .foregroundColor(.black)
+                            .font(.system(size: 20))
+                            .padding()
+                        Spacer()
+                    }
+                }
+                
+                
                 HStack {
                     VStack {
                         Spacer()
@@ -111,7 +122,7 @@ struct GameView: View {
         }
         .ignoresSafeArea(edges: .all)
         .alert(isPresented: $data.showLoseMessage) {
-            Alert(title: Text("GameOver"), message: Text("You lost all your lives :'D\nScore: \(data.score)"), primaryButton: .default(Text("Retry"), action: {data.showLoseMessage.toggle();data.generateWord();data.lives = 9}), secondaryButton: .default(Text("Exit"), action: {data.showLoseMessage.toggle(); data.stage = .inMenu}))
+            Alert(title: Text("GameOver"), message: Text("You lost all your lives :'D\nScore: \(data.score)"), primaryButton: .default(Text("Retry"), action: {data.showLoseMessage.toggle();data.generateWord()}), secondaryButton: .default(Text("Exit"), action: {data.showLoseMessage.toggle(); data.stage = .inMenu}))
         }
         
     }

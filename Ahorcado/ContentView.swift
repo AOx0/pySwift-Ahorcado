@@ -34,12 +34,11 @@ struct ContentView: View {
                         .stageViewMode(geo: geo, envObject: data)
             }
             
-            if dataHandler.debugger.isEnabled {
-                Text("\(dataHandler.debugger.debuggerText)")
-                    .font(.system(size: 10))
-                    .foregroundColor(.red)
-                    .frame(width: geo.size.width, height: geo.size.height, alignment: .bottomLeading)
-            }
+            Text("\(dataHandler.debugger.debuggerText)")
+                .font(.system(size: 10))
+                .foregroundColor(.red)
+                .frame(width: geo.size.width, height: geo.size.height, alignment: .bottomLeading)
+                .opacity(dataHandler.debugger.isEnabled ? 1 : 0)
         }
         .frame(minWidth: 800, idealWidth: 800, maxWidth: .infinity*1.6, minHeight: 450, idealHeight: 450, maxHeight: (.infinity/2)*1.6, alignment: .center)
         .edgesIgnoringSafeArea(.all)

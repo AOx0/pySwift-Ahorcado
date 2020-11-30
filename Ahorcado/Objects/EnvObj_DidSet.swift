@@ -16,14 +16,12 @@ extension EnvObject {
             case .inDefault: if score > maxScore.inDefault { self.maxScore.inDefault = score }
             default: if score > maxScore.inHard { self.maxScore.inHard = score }
         }
-        self.score = 0
-        
         self.isLose = false
     }
     
     func gameWonActions() {
         if isWin == true {
-            generateWord()
+            generateWord(isWin: true)
             score += 1
             isWin = false
         }

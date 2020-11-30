@@ -11,25 +11,11 @@ import SwiftUI
 
 extension EnvObject {
     
-    func countAccentChars(_ text : String) -> Int {
-        var text = text
-        text = text.replacingOccurrences(of: "ó", with: "1")
-        text = text.replacingOccurrences(of: "á", with: "1")
-        text = text.replacingOccurrences(of: "é", with: "1")
-        text = text.replacingOccurrences(of: "ú", with: "1")
-        text = text.replacingOccurrences(of: "í", with: "1")
-        
-        var num = 0
-        for i in text{
-            if String(i) == "1" {
-                num += 1
-            }
+    func generateWord(isWin : Bool=false) {
+        if !isWin {
+            self.lives = 9
+            self.score = 0
         }
-        
-        return num
-    }
-    
-    func generateWord() {
         self.letter = ""
         self.word = getRandomWord()
         self.displayedWord = containsSpecialChars() ? swiftGenDisplayWord() : pythonGenDisplayWord()
@@ -85,14 +71,14 @@ extension EnvObject {
     
     func genWord(word : String) -> String {
         var generatedDisplayWord = ""
-        for i in word {
-            if String(i) == " " {
-                generatedDisplayWord += " "
+        for char in Array(word) {
+            if String(char) == " " {
+                generatedDisplayWord += "\u{2003}"
             } else if true {
                 let possibility : [Int] = [1,1,1,1,2,2]
-                let randNumber = possibility[GKRandomDistribution(lowestValue: 0, highestValue: 1).nextInt()]
+                let randNumber = possibility[GKRandomDistribution(lowestValue: 0, highestValue: 5).nextInt()]
                 if randNumber == 2 {
-                    generatedDisplayWord += String(i)
+                    generatedDisplayWord += String(char)
                 } else {
                     generatedDisplayWord += "ˍ"
                 }
@@ -103,25 +89,18 @@ extension EnvObject {
     
     func swiftGenDisplayWord() -> String {
         var generatedDisplayWord : String = ""
-        
         switch self.difficulty {
         case .inEasy:
-            while true {
-                if !generatedDisplayWord.contains("ˍ") {
-                    generatedDisplayWord = genWord(word: self.word)
-                } else {
-                    break;
-                }
+            while !generatedDisplayWord.contains("ˍ") {
+                generatedDisplayWord = genWord(word: self.word)
             }
         case .inDefault:
-            if generatedDisplayWord.countOcurrences(of: "ˍ") < Int((Float(generatedDisplayWord.count) * 0.7)) {
+            while generatedDisplayWord.countOcurrences(of: "ˍ") < Int((Float(self.word.count) * 0.7)) {
                 generatedDisplayWord = genWord(word: self.word)
-            } else {
-                break;
             }
         case .inHard:
             for char in self.word {
-                if String(char) == " " { generatedDisplayWord += " " } else { generatedDisplayWord += "ˍ" }
+                if String(char) == " " { generatedDisplayWord += "\u{2003}" } else { generatedDisplayWord += "ˍ" }
             }
         }
         return generatedDisplayWord
@@ -163,7 +142,7 @@ extension String {
     
     func countOcurrences(of char: String) -> Int {
         var counter = 0
-        for i in self {
+        for i in Array(self) {
             if i == Character(char) {
                 counter += 1
             }
